@@ -1,0 +1,8 @@
+applications:
+- name: itucsdb
+  host: itucsdb
+  disk: 1024M
+  path: ITUCSDb.war
+  domain: mybluemix.net
+  mem: 512M
+  instances: 1
