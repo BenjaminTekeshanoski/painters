@@ -1,8 +1,8 @@
 applications:
-- name: itucsdb
-  host: itucsdb
+- name: painters
+  host: painters
   disk: 1024M
-  path: ITUCSDb.war
+  path: Painters.war
   domain: mybluemix.net
   mem: 512M
   instances: 1
