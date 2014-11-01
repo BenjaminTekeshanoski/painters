@@ -57,7 +57,13 @@ div#datetime {
 	position: absolute;
 }
 
-#welcome{
+#main {
+	position:absolute;
+	left:150px;
+	height:100%;
+}
+
+.message{
 	text-align:center;
 	font-size:24pt;
 	position:absolute;

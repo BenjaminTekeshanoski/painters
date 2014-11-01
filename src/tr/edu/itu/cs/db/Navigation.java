@@ -30,5 +30,13 @@ public class Navigation extends Panel {
             }
         };
         this.add(paintersPageLink);
+
+        Link contactPageLink = new Link("contact") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new ContactPage());
+            }
+        };
+        this.add(contactPageLink);
     }
 }
