@@ -3,6 +3,8 @@ package tr.edu.itu.cs.db;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
+import tr.edu.tr.cs.sh.TrendsPage;
+
 
 public class Navigation extends Panel {
     public Navigation(String id) {
