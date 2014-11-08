@@ -31,6 +31,15 @@ public class Navigation extends Panel {
         };
         this.add(paintersPageLink);
 
+        Link trendsPageLink = new Link("idioms") {
+
+            @Override
+            public void onClick() {
+                this.setResponsePage(new TrendsPage());
+            }
+        };
+        this.add(trendsPageLink);
+
         Link contactPageLink = new Link("contact") {
             @Override
             public void onClick() {
