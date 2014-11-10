@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  	<div id="page">
+	  	<header id="header">
+	  		<div id="headerimg"></div>
+	  		<div id="menu">Sign Up - Login - Search</div>
+	  	</header>
+	  	
+	  	<div id="content">
+	  		<nav id="navigation" wicket:id="mainNavigation">
+	  			navigation links
+	  		</nav>
+	  		<div id="main">
+	  			<table>
+	  			<tr wicket:id="museum_list">
+	  				<td>
+		  				<span wicket:id="name">Louvre Museum</span>
+		  				<span wicket:id="desc">The Louvre Museum is one of the world's largest museums and a historic monument. A central landmark of Paris. The Louvre is the world's most visited museum, and received more than 9.7 million visitors in 2012.</span>
+		  				<span wicket:id="location">Paris</span>
+		  				<span wicket:id="year">1973</span>
+		  			</td>
+		  		</tr>
+		  		</table>
+	  		</div>
+	  	</div>
+	   
+	
+	    <footer id="footer">
+	      <div id="datetime" wicket:id="datetime">
+	         Wed Sep 4 15:32:40 EEST 2013
+	      </div>
+	    </footer>
+	</div>
+  </body>
+</html>

@@ -3,6 +3,7 @@ package tr.edu.itu.cs.db;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
+import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.tr.cs.sh.TrendsPage;
 
 
@@ -35,6 +36,14 @@ public class Navigation extends Panel {
             }
         };
         this.add(paintersPageLink);
+
+        Link museumPageLink = new Link("museums") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new MuseumPage());
+            }
+        };
+        this.add(museumPageLink);
 
         Link trendsPageLink = new Link("idioms") {
 
