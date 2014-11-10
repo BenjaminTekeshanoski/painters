@@ -20,7 +20,9 @@ public class Navigation extends Panel {
         Link paintingsPageLink = new Link("paintings") {
             @Override
             public void onClick() {
-                this.setResponsePage(new PaintingsPage());
+                this.setResponsePage(new HomePage()); // buraya oluþturduðunuz
+                                                      // paintings page i
+                                                      // ekleyin
             }
         };
         this.add(paintingsPageLink);
@@ -28,7 +30,8 @@ public class Navigation extends Panel {
         Link paintersPageLink = new Link("painters") {
             @Override
             public void onClick() {
-                this.setResponsePage(new PaintersPage());
+                this.setResponsePage(new HomePage()); // buraya oluþturduðunuz
+                                                      // painters page i ekleyin
             }
         };
         this.add(paintersPageLink);
