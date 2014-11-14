@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
 import tr.edu.itu.cs.hca.MuseumPage;
+import tr.edu.tr.cs.sh.PaintingsPage;
 import tr.edu.tr.cs.sh.TrendsPage;
 
 
@@ -21,9 +22,10 @@ public class Navigation extends Panel {
         Link paintingsPageLink = new Link("paintings") {
             @Override
             public void onClick() {
-                this.setResponsePage(new HomePage()); // buraya oluþturduðunuz
-                                                      // paintings page i
-                                                      // ekleyin
+                this.setResponsePage(new PaintingsPage()); // buraya
+                                                           // oluþturduðunuz
+                                                           // paintings page i
+                                                           // ekleyin
             }
         };
         this.add(paintingsPageLink);

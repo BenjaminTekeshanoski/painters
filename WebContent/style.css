@@ -39,6 +39,14 @@ div#datetime {
 	background-position: center center;
 	background-repeat: no-repeat;
 }
+
+#headerimg1{
+	width:100%;
+	height:150px;
+	background-image: url(img/wfp.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
 #menu,#footer{
 	width:100%;
 	height:50px;

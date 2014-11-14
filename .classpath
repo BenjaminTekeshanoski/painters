@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jetty-xml-7.6.12.v20130726.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/img/world_famous_people.jpg"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
