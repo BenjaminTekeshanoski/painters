@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class MuseumCollection {
+public class MuseumCollection implements IMuseumCollection {
     private List<Museum> museums;
 
     public MuseumCollection() {
@@ -17,5 +17,13 @@ public class MuseumCollection {
 
     public void addMuseum(Museum aMuseum) {
         this.museums.add(aMuseum);
+    }
+
+    public void deleteMuseum(Museum aMuseum) {
+        this.museums.remove(aMuseum);
+    }
+
+    public void updateMuseum(Museum aMuseum) {
+        // this.museums.update(aMuseum);
     }
 }

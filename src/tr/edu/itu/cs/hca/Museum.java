@@ -1,6 +1,7 @@
 package tr.edu.itu.cs.hca;
 
 public class Museum {
+    private Integer id = null;
     private String name = null;
     private String desc = null;
     private String location = null;
@@ -9,11 +10,23 @@ public class Museum {
     public Museum() {
     }
 
+    public Museum(String aName) {
+        this.setName(aName);
+    }
+
     public Museum(String aName, String aDesc, String aLocation, Integer aYear) {
         this.setName(aName);
         this.setDesc(aDesc);
         this.setLocation(aLocation);
         this.setYear(aYear);
+    }
+
+    public void setId(Integer aId) {
+        this.id = aId;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public void setName(String aName) {

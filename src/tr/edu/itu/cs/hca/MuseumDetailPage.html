@@ -17,24 +17,18 @@
 	  			navigation links
 	  		</nav>
 	  		<div id="main">
-	  		<h2>Museum List</h2>
-	  		<form action="#" wicket:id="museum_form">
-	  			<div wicket:id="selected_museums">
-			  			<table>
-			  			<tr wicket:id="museum_list">
-			  				<td><input type="checkbox" wicket:id="selected"/></td>
-			  				<td>
-			  					<a href="#" wicket:id="museum_link">
-				  					<span wicket:id="name">Louvre Museum</span>
-				  				</a>
-				  			</td>
-				  		</tr>
-				  		</table>
-				</div>
-				<input type="submit" value="Delete" name="delete"/>
-			</form>
-		  		<br/><br/><br/>
-		  		<a href="#" wicket:id="add_museum">Add Museum</a>
+	  			<h2 wicket:id="name">Louvre Museum</h2>
+	  			<table>
+	  				<tr>
+	  					<th>Location:</th>
+	  					<td wicket:id="year">1973</td>
+	  					<th>Year:</th>
+	  					<td wicket:id="location">Paris</td>
+	  					<th>Description:</th>
+	  					<td wicket:id="desc">The world's most visited museum.</td>
+	  				</tr>
+	  			</table>
+	  			<p><a href="#" wicket:id="edit_link">Edit</a></p>
 	  		</div>
 	  	</div>
 	   
