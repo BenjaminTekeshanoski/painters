@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
 import tr.edu.itu.cs.hca.MuseumPage;
+import tr.edu.itu.cs.hca.Updates;
 import tr.edu.tr.cs.sh.PaintingsPage;
 import tr.edu.tr.cs.sh.TrendsPage;
 
@@ -46,6 +47,14 @@ public class Navigation extends Panel {
             }
         };
         this.add(museumPageLink);
+
+        Link updatesPageLink = new Link("updates") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new Updates());
+            }
+        };
+        this.add(updatesPageLink);
 
         Link trendsPageLink = new Link("idioms") {
 
