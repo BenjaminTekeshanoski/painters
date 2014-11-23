@@ -4,11 +4,17 @@ public class Comment {
     private String comment = null;
     private String owner = null;
     private String target = null;
+    private Integer id;
 
-    public Comment(String aComment, String aOwner, String aTarget) {
+    public Comment(String aComment, String aOwner, String aTarget, Integer aId) {
         this.setCom(aComment);
         this.setOwner(aOwner);
         this.setTarget(aTarget);
+        this.setId(aId);
+    }
+
+    public Comment(String aComment) {
+        this.setCom(aComment);
     }
 
     public void setCom(String aComment) {
@@ -35,4 +41,11 @@ public class Comment {
         return this.target;
     }
 
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer aId) {
+        this.id = aId;
+    }
 }
