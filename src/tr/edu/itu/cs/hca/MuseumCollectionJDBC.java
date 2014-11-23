@@ -1,5 +1,6 @@
 package tr.edu.itu.cs.hca;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,7 @@ import java.util.List;
 public class MuseumCollectionJDBC implements IMuseumCollection {
     private Connection _db;
 
-    public MuseumCollectionJDBC(String dbFilePath) {
+    public MuseumCollectionJDBC() {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
@@ -21,7 +22,9 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
         }
 
         try {
-            String jdbcURL = "jdbc:sqlite:" + dbFilePath;
+            String sqlite = "jdbc:sqlite:";
+            String home = System.getProperty("user.home");
+            String jdbcURL = sqlite + home + File.separator + "painters.sqlite";
             this._db = DriverManager.getConnection(jdbcURL);
         } catch (SQLException ex) {
             throw new UnsupportedOperationException(ex.getMessage());

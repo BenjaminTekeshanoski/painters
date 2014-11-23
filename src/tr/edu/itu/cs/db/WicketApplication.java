@@ -1,22 +1,32 @@
 package tr.edu.itu.cs.db;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletContext;
+
 import org.apache.wicket.protocol.http.WebApplication;
 
 import tr.edu.itu.cs.hca.IMuseumCollection;
-import tr.edu.itu.cs.hca.Museum;
-import tr.edu.itu.cs.hca.MuseumCollection;
+import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 
 
 public class WicketApplication extends WebApplication {
+    private Connection _conn;
     private IMuseumCollection _collection;
 
     @Override
     public void init() {
         super.init();
-        /*
-         * this._collection = new MuseumCollectionJDBC(
-         * "C:/Users/HasanCan/Documents/itucsdb.sqlite");
-         */
+        this.createDb();
+        this._collection = new MuseumCollectionJDBC();
     }
 
     @Override
@@ -24,15 +34,39 @@ public class WicketApplication extends WebApplication {
         return HomePage.class;
     }
 
-    public WicketApplication() {
-        this._collection = new MuseumCollection();
-        Museum museum1 = new Museum("Louvre Museum",
-                "The world's most visited museum.", "Paris", 1973);
-        _collection.addMuseum(museum1);
-        Museum museum2 = new Museum("Museum of Modern Art",
-                "Most influential museum of modern art in the world.",
-                "New York", 1929);
-        _collection.addMuseum(museum2);
+    private void createDb() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new UnsupportedOperationException(e.getMessage());
+        }
+
+        try {
+            String sqlite = "jdbc:sqlite:";
+            String home = System.getProperty("user.home");
+            String jdbcURL = sqlite + home + File.separator + "painters.sqlite";
+            this._conn = DriverManager.getConnection(jdbcURL);
+        } catch (SQLException ex) {
+            throw new UnsupportedOperationException(ex.getMessage());
+        }
+
+        String line = "";
+        ServletContext context = WebApplication.get().getServletContext();
+        InputStream stream = context.getResourceAsStream("/WEB-INF/init.sql");
+
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(stream));
+
+        try {
+            while ((line = reader.readLine()) != null) {
+                Statement stmt = _conn.createStatement();
+                stmt.executeUpdate(line);
+            }
+        } catch (SQLException e) {
+            throw new UnsupportedOperationException(e.getMessage());
+        } catch (IOException e) {
+            throw new UnsupportedOperationException(e.getMessage());
+        }
     }
 
     public IMuseumCollection getCollection() {
