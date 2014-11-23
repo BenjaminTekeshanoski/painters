@@ -24,7 +24,7 @@ public class MuseumForm extends Form {
         this.add(museumCheckGroup);
 
         WicketApplication app = (WicketApplication) this.getApplication();
-        IMuseumCollection collection = app.getCollection();
+        IMuseumCollection collection = app.getMuseumCollection();
         List<Museum> museums = collection.getMuseums();
 
         PropertyListView museumListView = new PropertyListView("museum_list",
@@ -45,7 +45,7 @@ public class MuseumForm extends Form {
     @Override
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
-        IMuseumCollection collection = app.getCollection();
+        IMuseumCollection collection = app.getMuseumCollection();
         for (Museum museum : this.selectedMuseums) {
             collection.deleteMuseum(museum);
         }

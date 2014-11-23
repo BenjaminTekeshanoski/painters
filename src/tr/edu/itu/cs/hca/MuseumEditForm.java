@@ -27,7 +27,7 @@ public class MuseumEditForm extends Form {
     public void onSubmit() {
         Museum museum = (Museum) this.getModelObject();
         WicketApplication app = (WicketApplication) this.getApplication();
-        IMuseumCollection collection = app.getCollection();
+        IMuseumCollection collection = app.getMuseumCollection();
 
         if (this.newMuseum) {
             collection.addMuseum(museum);

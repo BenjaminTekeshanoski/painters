@@ -16,18 +16,20 @@ import org.apache.wicket.protocol.http.WebApplication;
 
 import tr.edu.itu.cs.hca.IMuseumCollection;
 import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
+import tr.edu.itu.cs.ms.ICommentCollection;
 
 
 public class WicketApplication extends WebApplication {
     private Connection _conn;
-    private IMuseumCollection _collection;
+    private IMuseumCollection _museum_collection;
+    private ICommentCollection _comment_collection;
 
     @Override
     public void init() {
         super.init();
         this.initializeDb();
         this.createDB();
-        this._collection = new MuseumCollectionJDBC();
+        this._museum_collection = new MuseumCollectionJDBC();
     }
 
     @Override
@@ -72,8 +74,11 @@ public class WicketApplication extends WebApplication {
         }
     }
 
-    public IMuseumCollection getCollection() {
-        return this._collection;
+    public IMuseumCollection getMuseumCollection() {
+        return this._museum_collection;
     }
 
+    public ICommentCollection getCollection() {
+        return this._comment_collection;
+    }
 }
