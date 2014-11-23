@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  	<div id="page">
+	  	<header id="header">
+	  		<div id="headerimg"></div>
+	  		<div id="menu">Sign Up - Login - Search</div>
+	  	</header>
+	  	
+	  	<div id="content">
+	  		<nav id="navigation" wicket:id="mainNavigation">
+	  			navigation links
+	  		</nav>
+	  		<div id="main">
+	  			<h2 wicket:id="comment">What a great painting!</h2>
+	  			<table>
+	  				<tr>
+	  					<th>Comment owner:</th>
+	  					<td wicket:id="owner">Musa Şahin</td>
+	  					<th>Target:</th>
+	  					<td wicket:id="target">Mona Lisa</td>
+					</tr>
+	  			</table>
+	  			<p><a href="#" wicket:id="edit_link">Edit</a></p>
+	  		</div>
+	  	</div>
+	   
+	
+	    <footer id="footer">
+	      <div id="datetime" wicket:id="datetime">
+	         Wed Sep 4 15:32:40 EEST 2013
+	      </div>
+	    </footer>
+	</div>
+  </body>
+</html>
