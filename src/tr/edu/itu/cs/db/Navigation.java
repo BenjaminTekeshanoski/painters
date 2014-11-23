@@ -63,5 +63,15 @@ public class Navigation extends Panel {
             }
         };
         this.add(contactPageLink);
+
+        Link reloadDbLink = new Link("reload_db") {
+            @Override
+            public void onClick() {
+                WicketApplication app = (WicketApplication) this
+                        .getApplication();
+                app.createDB();
+            }
+        };
+        this.add(reloadDbLink);
     }
 }

@@ -25,7 +25,8 @@ public class WicketApplication extends WebApplication {
     @Override
     public void init() {
         super.init();
-        this.createDb();
+        this.initializeDb();
+        this.createDB();
         this._collection = new MuseumCollectionJDBC();
     }
 
@@ -34,7 +35,7 @@ public class WicketApplication extends WebApplication {
         return HomePage.class;
     }
 
-    private void createDb() {
+    private void initializeDb() {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
@@ -49,9 +50,11 @@ public class WicketApplication extends WebApplication {
         } catch (SQLException ex) {
             throw new UnsupportedOperationException(ex.getMessage());
         }
+    }
 
+    public void createDB() {
         String line = "";
-        ServletContext context = WebApplication.get().getServletContext();
+        ServletContext context = getServletContext();
         InputStream stream = context.getResourceAsStream("/WEB-INF/init.sql");
 
         BufferedReader reader = new BufferedReader(
