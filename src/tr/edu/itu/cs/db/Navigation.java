@@ -3,6 +3,7 @@ package tr.edu.itu.cs.db;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
+import tr.edu.itu.cs.bt.PaintersPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
 import tr.edu.tr.cs.sh.PaintingsPage;
@@ -34,8 +35,9 @@ public class Navigation extends Panel {
         Link paintersPageLink = new Link("painters") {
             @Override
             public void onClick() {
-                this.setResponsePage(new HomePage()); // buraya oluþturduðunuz
-                                                      // painters page i ekleyin
+                this.setResponsePage(new PaintersPage()); // buraya
+                                                          // oluþturduðunuz
+                // painters page i ekleyin
             }
         };
         this.add(paintersPageLink);
