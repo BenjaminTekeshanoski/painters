@@ -13,7 +13,7 @@ import org.apache.wicket.markup.html.list.PropertyListView;
 import tr.edu.itu.cs.db.WicketApplication;
 
 
-public class PaintingForm-degistir extends Form {
+public class PaintingForm extends Form {
 
     private List<Painting> selectedPaintings;
 

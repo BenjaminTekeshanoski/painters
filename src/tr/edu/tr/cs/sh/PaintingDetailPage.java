@@ -6,7 +6,7 @@ import org.apache.wicket.markup.html.link.Link;
 import tr.edu.itu.cs.db.BasePage;
 
 
-public final class PaintingDetailPage-degistir extends BasePage {
+public final class PaintingDetailPage extends BasePage {
 
     private Painting _painting;
 

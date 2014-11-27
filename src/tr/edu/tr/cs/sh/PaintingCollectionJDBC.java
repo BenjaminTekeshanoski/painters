@@ -90,7 +90,7 @@ public class PaintingCollectionJDBC implements IPaintingCollection {
         }
     }
 
-    public void updatePainting(Painting painting)-degistir {
+    public void updatePainting(Painting painting) {
         try {
             String query = "UPDATE PAINTING SET name = ?, year = ? , location=?, desc=? WHERE(id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);

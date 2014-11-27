@@ -5,7 +5,7 @@ import org.apache.wicket.markup.html.link.Link;
 import tr.edu.itu.cs.db.BasePage;
 
 
-public class PaintingPage-dehis extends BasePage {
+public class PaintingPage extends BasePage {
 
     public PaintingPage() {
         Link paintingAddLink = new Link("add_painting") {

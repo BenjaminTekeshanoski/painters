@@ -7,7 +7,7 @@ import org.apache.wicket.model.CompoundPropertyModel;
 import tr.edu.itu.cs.db.WicketApplication;
 
 
-public class PaintingEditForm-degistir extends Form {
+public class PaintingEditForm extends Form {
 
     private boolean newPainting;
 

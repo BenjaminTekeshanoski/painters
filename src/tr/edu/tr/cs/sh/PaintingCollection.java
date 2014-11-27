@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class PaintingCollection implements IPaintingCollections-degistir {
+public class PaintingCollection implements IPaintingCollection {
 
     private List<Painting> Paintings;
 
