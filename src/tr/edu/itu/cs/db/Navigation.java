@@ -6,7 +6,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import tr.edu.itu.cs.bt.PaintersPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
-import tr.edu.tr.cs.sh.PaintingsPage;
+import tr.edu.tr.cs.sh.PaintingPage;
 import tr.edu.tr.cs.sh.TrendsPage;
 
 
@@ -21,16 +21,16 @@ public class Navigation extends Panel {
         };
         this.add(homePageLink);
 
-        Link paintingsPageLink = new Link("paintings") {
+        Link paintingPageLink = new Link("paintings") {
             @Override
             public void onClick() {
-                this.setResponsePage(new PaintingsPage()); // buraya
-                                                           // oluþturduðunuz
-                                                           // paintings page i
-                                                           // ekleyin
+                this.setResponsePage(new PaintingPage()); // buraya
+                                                          // oluþturduðunuz
+                                                          // paintings page i
+                                                          // ekleyin
             }
         };
-        this.add(paintingsPageLink);
+        this.add(paintingPageLink);
 
         Link paintersPageLink = new Link("painters") {
             @Override
