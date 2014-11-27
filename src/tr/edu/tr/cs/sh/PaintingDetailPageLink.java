@@ -8,7 +8,7 @@ import tr.edu.tr.cs.sh.Painting;
 import tr.edu.tr.cs.sh.PaintingDetailPage;
 
 
-public class PaintingDetailPageLink extends Link {
+public class PaintingDetailPageLink-degistir extends Link {
 
     private Painting _painting;
 

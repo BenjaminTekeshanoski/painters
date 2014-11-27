@@ -5,7 +5,7 @@ import java.util.List;
 import tr.edu.tr.cs.sh.Painting;
 //import tr.edu.itu.cs.hca.Museum;
 
-public interface IPaintingCollection {
+public interface IPaintingCollection-degistir {
 
     public List<Painting> getPaintings();
 

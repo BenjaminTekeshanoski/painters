@@ -19,6 +19,7 @@ public class Museum {
         this.setDesc(aDesc);
         this.setLocation(aLocation);
         this.setYear(aYear);
+
     }
 
     public void setId(Integer aId) {

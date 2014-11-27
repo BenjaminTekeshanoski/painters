@@ -5,7 +5,7 @@ import tr.edu.itu.cs.db.BasePage;
 //import tr.edu.itu.cs.hca.MuseumEditForm;
 
 
-public class PaintingEditPage extends BasePage {
+public class PaintingEditPage-degistir extends BasePage {
 
     public PaintingEditPage(Painting aPainting) {
         this.add(new PaintingEditForm("painting_edit", aPainting, true));

@@ -5,7 +5,7 @@ import org.apache.wicket.markup.html.link.Link;
 import tr.edu.itu.cs.db.BasePage;
 
 
-public class TrendsPage extends BasePage {
+public class TrendsPage-dehis extends BasePage {
 
     public TrendsPage() {
 

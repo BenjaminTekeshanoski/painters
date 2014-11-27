@@ -19,6 +19,9 @@ import tr.edu.itu.cs.hca.IUpdateCollection;
 import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
 import tr.edu.itu.cs.ms.ICommentCollection;
+//Shuaib//
+import tr.edu.tr.cs.sh.IPaintingCollection;
+import tr.edu.tr.cs.sh.PaintingCollectionJDBC;
 
 
 public class WicketApplication extends WebApplication {
@@ -27,6 +30,9 @@ public class WicketApplication extends WebApplication {
     private IUpdateCollection _update_collection;
     private ICommentCollection _comment_collection;
 
+    // Shuaib//
+    private IPaintingCollection _painting_collection;
+
     @Override
     public void init() {
         super.init();
@@ -34,6 +40,9 @@ public class WicketApplication extends WebApplication {
         this.createDB();
         this._museum_collection = new MuseumCollectionJDBC();
         this._update_collection = new UpdateCollectionJDBC();
+        // Shuaib//
+        this._painting_collection = new PaintingCollectionJDBC();
+
     }
 
     @Override
@@ -89,4 +98,10 @@ public class WicketApplication extends WebApplication {
     public ICommentCollection getCollection() {
         return this._comment_collection;
     }
+
+    // Shuaib//
+    public IPaintingCollection getPaintingCollection() {
+        return this._painting_collection;
+    }
+
 }
