@@ -10,7 +10,7 @@ public class User {
 
     public User(String name, String surname, String password, String nickname,
             String email, int accessLevel, int id) {
-        this.email = email;
+        this.email = email;//
         this.name = name;
         this.surname = surname;
         this.id = id;
