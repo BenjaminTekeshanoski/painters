@@ -6,6 +6,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import tr.edu.itu.cs.bt.PaintersPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
+import tr.edu.itu.cs.ms.CommentPage;
 import tr.edu.tr.cs.sh.IdiomPage;
 import tr.edu.tr.cs.sh.PaintingPage;
 
@@ -84,5 +85,12 @@ public class Navigation extends Panel {
             }
         };
         this.add(reloadDbLink);
+        Link commentPageLink = new Link("comments") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new CommentPage());
+            }
+        };
+        this.add(commentPageLink);
     }
 }

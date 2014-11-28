@@ -18,6 +18,7 @@ import tr.edu.itu.cs.hca.IMuseumCollection;
 import tr.edu.itu.cs.hca.IUpdateCollection;
 import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
+import tr.edu.itu.cs.ms.CommentCollectionJDBC;
 import tr.edu.itu.cs.ms.ICommentCollection;
 import tr.edu.tr.cs.sh.IIdiomCollection;
 //Shuaib//
@@ -43,6 +44,7 @@ public class WicketApplication extends WebApplication {
         this.createDB();
         this._museum_collection = new MuseumCollectionJDBC();
         this._update_collection = new UpdateCollectionJDBC();
+        this._comment_collection = new CommentCollectionJDBC();
         // Shuaib//
         this._painting_collection = new PaintingCollectionJDBC();
         this._idiom_collection = new IdiomCollectionJDBC();

@@ -1,5 +1,6 @@
 package tr.edu.itu.cs.ms;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,7 @@ import java.util.List;
 public class CommentCollectionJDBC implements ICommentCollection {
     private Connection _db;
 
-    public CommentCollectionJDBC(String dbFilePath) {
+    public CommentCollectionJDBC() {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
@@ -21,7 +22,9 @@ public class CommentCollectionJDBC implements ICommentCollection {
         }
 
         try {
-            String jdbcURL = "jdbc:sqlite:" + dbFilePath;
+            String sqlite = "jdbc:sqlite:";
+            String home = System.getProperty("user.home");
+            String jdbcURL = sqlite + home + File.separator + "painters.sqlite";
             this._db = DriverManager.getConnection(jdbcURL);
         } catch (SQLException ex) {
             throw new UnsupportedOperationException(ex.getMessage());
