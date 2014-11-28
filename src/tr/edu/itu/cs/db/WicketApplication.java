@@ -19,8 +19,10 @@ import tr.edu.itu.cs.hca.IUpdateCollection;
 import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
 import tr.edu.itu.cs.ms.ICommentCollection;
+import tr.edu.tr.cs.sh.IIdiomCollection;
 //Shuaib//
 import tr.edu.tr.cs.sh.IPaintingCollection;
+import tr.edu.tr.cs.sh.IdiomCollectionJDBC;
 import tr.edu.tr.cs.sh.PaintingCollectionJDBC;
 
 
@@ -32,6 +34,7 @@ public class WicketApplication extends WebApplication {
 
     // Shuaib//
     private IPaintingCollection _painting_collection;
+    private IIdiomCollection _idiom_collection;
 
     @Override
     public void init() {
@@ -42,6 +45,7 @@ public class WicketApplication extends WebApplication {
         this._update_collection = new UpdateCollectionJDBC();
         // Shuaib//
         this._painting_collection = new PaintingCollectionJDBC();
+        this._idiom_collection = new IdiomCollectionJDBC();
 
     }
 
@@ -102,6 +106,11 @@ public class WicketApplication extends WebApplication {
     // Shuaib//
     public IPaintingCollection getPaintingCollection() {
         return this._painting_collection;
+
+    }
+
+    public IIdiomCollection getIdiomCollection() {
+        return this._idiom_collection;
     }
 
 }

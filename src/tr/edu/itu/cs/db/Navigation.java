@@ -6,8 +6,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import tr.edu.itu.cs.bt.PaintersPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
+import tr.edu.tr.cs.sh.IdiomPage;
 import tr.edu.tr.cs.sh.PaintingPage;
-import tr.edu.tr.cs.sh.TrendsPage;
 
 
 public class Navigation extends Panel {
@@ -58,14 +58,14 @@ public class Navigation extends Panel {
         };
         this.add(updatesPageLink);
 
-        Link trendsPageLink = new Link("idioms") {
+        Link idiomPageLink = new Link("idioms") {
 
             @Override
             public void onClick() {
-                this.setResponsePage(new TrendsPage());
+                this.setResponsePage(new IdiomPage());
             }
         };
-        this.add(trendsPageLink);
+        this.add(idiomPageLink);
 
         Link contactPageLink = new Link("contact") {
             @Override

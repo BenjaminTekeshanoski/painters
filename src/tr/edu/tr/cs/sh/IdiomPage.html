@@ -17,18 +17,24 @@
 	  			navigation links
 	  		</nav>
 	  		<div id="main">
-	  			<h2 wicket:id="name">Louvre Museum</h2>
-	  			<table>
-	  				<tr>
-	  					<th>Year:</th>
-	  					<td wicket:id="year">1973</td>
-	  					<th>name of P:</th>
-	  					<td wicket:id="location">Paris</td>
-	  					<th>Description:</th>
-	  					<td wicket:id="desc">The world's most visited museum.</td>
-	  				</tr>
-	  			</table>
-	  			<p><a href="#" wicket:id="edit_link">Edit</a></p>
+	  		<h2>Idiom List</h2>
+	  		<form action="#" wicket:id="idiom_form">
+	  			<div wicket:id="selected_idioms">
+			  			<table>
+			  			<tr wicket:id="idiom_list">
+			  				<td><input type="checkbox" wicket:id="selected"/></td>
+			  				<td>
+			  					<a href="#" wicket:id="idiom_link">
+				  					<span wicket:id="name">Mona Lisa</span>
+				  				</a>
+				  			</td>
+				  		</tr>
+				  		</table>
+				</div>
+				<input type="submit" value="Delete" name="delete"/>
+			</form>
+		  		<br/><br/><br/>
+		  		<a href="#" wicket:id="add_idiom">Add Idiom</a>
 	  		</div>
 	  	</div>
 	   
