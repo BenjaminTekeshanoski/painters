@@ -2,7 +2,7 @@
 <html xmlns:wicket="http://wicket.apache.org">
   <head>
     <meta charset="utf-8" />
-    <title>Painters</title>
+    <title>Home</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -17,16 +17,18 @@
 	  			navigation links
 	  		</nav>
 	  		<div id="main">
-	Gecici:
-	  		Allegory[edit]
-Allegory is a figurative mode of representation conveying meaning other 
-than the literal. Allegory communicates its message by means of symbolic figures, 
-actions or symbolic representation. Allegory is generally treated as a figure of rhetoric, 
-but an allegory does not have to be expressed in language: 
-it may be addressed to the eye, and is often found in realistic painting. 
-An example of a simple visual allegory is the image of the grim reaper. 
-Viewers understand that the image of the grim reaper is a symbolic representation of death.
-	
+	  			<h2 wicket:id="name">Louvre Museum</h2>
+	  			<table>
+	  				<tr>
+	  					<th>Year:</th>
+	  					<td wicket:id="year">1973</td>
+	  					<th>name of P:</th>
+	  					<td wicket:id="location">Paris</td>
+	  					<th>Description:</th>
+	  					<td wicket:id="desc">The world's most visited museum.</td>
+	  				</tr>
+	  			</table>
+	  			<p><a href="#" wicket:id="edit_link">Edit</a></p>
 	  		</div>
 	  	</div>
 	   

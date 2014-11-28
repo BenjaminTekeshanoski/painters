@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html xmlns:wicket="http://wicket.apache.org">
   <head>
     <meta charset="utf-8" />
-    <title>Paintings</title>
+    <title>Home</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -17,18 +16,28 @@
 	  		<nav id="navigation" wicket:id="mainNavigation">
 	  			navigation links
 	  		</nav>
-	  	
-	  	<div id="main">
-	  			
-	  		</div>
-	  	
 	  		<div id="main">
-	  			<a href="#" id="idiomList" wicket:id="idiomList">1 Allegory</a>
-	  			
+	  		<h2>YourPainting List</h2>
+	  		<form action="#" wicket:id="yourPainting_form">
+	  			<div wicket:id="selected_yourPaintings">
+			  			<table>
+			  			<tr wicket:id="yourPainting_list">
+			  				<td><input type="checkbox" wicket:id="selected"/></td>
+			  				<td>
+			  					<a href="#" wicket:id="yourPainting_link">
+				  					<span wicket:id="name">Mona Lisa</span>
+				  				</a>
+				  			</td>
+				  		</tr>
+				  		</table>
+				</div>
+				<input type="submit" value="Delete" name="delete"/>
+			</form>
+		  		<br/><br/><br/>
+		  		<a href="#" wicket:id="add_yourPainting">Add YourPainting</a>
 	  		</div>
 	  	</div>
-	  		
-	
+	   
 	
 	    <footer id="footer">
 	      <div id="datetime" wicket:id="datetime">

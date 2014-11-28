@@ -23,8 +23,10 @@ import tr.edu.itu.cs.ms.ICommentCollection;
 import tr.edu.tr.cs.sh.IIdiomCollection;
 //Shuaib//
 import tr.edu.tr.cs.sh.IPaintingCollection;
+import tr.edu.tr.cs.sh.IYourPaintingCollection;
 import tr.edu.tr.cs.sh.IdiomCollectionJDBC;
 import tr.edu.tr.cs.sh.PaintingCollectionJDBC;
+import tr.edu.tr.cs.sh.YourPaintingCollectionJDBC;
 
 
 public class WicketApplication extends WebApplication {
@@ -36,6 +38,7 @@ public class WicketApplication extends WebApplication {
     // Shuaib//
     private IPaintingCollection _painting_collection;
     private IIdiomCollection _idiom_collection;
+    private IYourPaintingCollection _yourpainting_collection;
 
     @Override
     public void init() {
@@ -48,7 +51,7 @@ public class WicketApplication extends WebApplication {
         // Shuaib//
         this._painting_collection = new PaintingCollectionJDBC();
         this._idiom_collection = new IdiomCollectionJDBC();
-
+        this._yourpainting_collection = new YourPaintingCollectionJDBC();
     }
 
     @Override
@@ -113,6 +116,11 @@ public class WicketApplication extends WebApplication {
 
     public IIdiomCollection getIdiomCollection() {
         return this._idiom_collection;
+    }
+
+    public IYourPaintingCollection getYourPaintingCollection() {
+        return this._yourpainting_collection;
+
     }
 
 }

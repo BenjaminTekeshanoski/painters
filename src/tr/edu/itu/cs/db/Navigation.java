@@ -9,6 +9,7 @@ import tr.edu.itu.cs.hca.Updates;
 import tr.edu.itu.cs.ms.CommentPage;
 import tr.edu.tr.cs.sh.IdiomPage;
 import tr.edu.tr.cs.sh.PaintingPage;
+import tr.edu.tr.cs.sh.YourPaintingPage;
 
 
 public class Navigation extends Panel {
@@ -22,6 +23,7 @@ public class Navigation extends Panel {
         };
         this.add(homePageLink);
 
+        // Shuain//
         Link paintingPageLink = new Link("paintings") {
             @Override
             public void onClick() {
@@ -59,6 +61,7 @@ public class Navigation extends Panel {
         };
         this.add(updatesPageLink);
 
+        // Shuain//
         Link idiomPageLink = new Link("idioms") {
 
             @Override
@@ -85,6 +88,20 @@ public class Navigation extends Panel {
             }
         };
         this.add(reloadDbLink);
+
+        // Shuaib//
+        Link yourpaintingPageLink = new Link("yourpainting") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new YourPaintingPage()); // buraya
+                // oluþturduðunuz
+                // paintings page iz
+                // ekleyin
+            }
+
+        };
+        this.add(yourpaintingPageLink);
+
         Link commentPageLink = new Link("comments") {
             @Override
             public void onClick() {
@@ -92,5 +109,7 @@ public class Navigation extends Panel {
             }
         };
         this.add(commentPageLink);
+
     }
+
 }

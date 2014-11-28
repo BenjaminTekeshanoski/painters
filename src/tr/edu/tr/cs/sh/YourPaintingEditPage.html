@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  	<div id="page">
+	  	<header id="header">
+	  		<div id="headerimg"></div>
+	  		<div id="menu">Sign Up - Login - Search</div>
+	  	</header>
+	  	
+	  	<div id="content">
+	  		<nav id="navigation" wicket:id="mainNavigation">
+	  			navigation links
+	  		</nav>
+	  		<div id="main">
+		  		<form action="#" wicket:id="yourPainting_edit">
+		  			<table>
+		  				<tr>
+		  					<th>Name:</th>
+		  					<td><input wicket:id="name" type="text"/></td>
+		  				</tr>
+		  				
+		  				
+		  			
+		  				
+		  				<tr>
+		  					<th>Year:</th>
+		  					<td><input wicket:id="year" type="text" size="4" /></td>
+		  				</tr>
+		  			
+		  			  		<tr>
+		  				
+		  					<th>Location:</th>
+		  					<td><input wicket:id="location" type="text"/></td>
+		  				</tr>
+		  				
+		  				<tr>
+		  				
+		  					<th>Desc:</th>
+		  					<td><input wicket:id="desc" type="text"/></td>
+		  				</tr>
+		  				
+		  			
+		  			
+		  			</table>
+		  			<input value="Save" name="save" type="submit"/>
+		  		</form>
+	  		</div>
+	  	</div>
+	   
+	
+	    <footer id="footer">
+	      <div id="datetime" wicket:id="datetime">
+	         Wed Sep 4 15:32:40 EEST 2013
+	      </div>
+	    </footer>
+	</div>
+  </body>
+</html>
