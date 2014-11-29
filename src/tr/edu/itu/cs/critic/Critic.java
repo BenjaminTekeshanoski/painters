@@ -7,13 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.model.Model;
 
+public class Critic {
+    private String Result;
 
-public class Critic extends TextField {
-    public Critic(String id, int subjectID, Model<String> model) {
-        super(id, model);
+    public Critic(int subjectID) {
+
         Connection _db = null;
         String sqlite = "jdbc:sqlite:";
         String home = System.getProperty("user.home");
@@ -23,29 +22,33 @@ public class Critic extends TextField {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String query = "SELECT * FROM CRITICS WHERE subject=" + subjectID
-                + " INNER JOIN REVIEWERS"
-                + " ON CRITICS.REVIEWERID=REVIEWERS.id;";
         Statement statement = null;
         try {
             statement = _db.createStatement();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-            System.out.println("1part");
         }
-        String output = null;
+        String query = "Select * from critics inner join reviewer on reviewer.id=critics.reviewerid where SUBJECT="
+                + subjectID;
+        ResultSet rs = null;
         try {
-            ResultSet results = statement.executeQuery(query);
-            while (results.next()) {
-                output += results.getString("FULLNAME") + ":\n";
-                output += results.getString("CRITIC") + "\n";
+            rs = statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String output = "";
+        try {
+            while (rs.next()) {
+                output += (rs.getString("fullname") + " :\n "
+                        + rs.getString("CRITIC") + "\n");
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
-            System.out.println("2part");
         }
-        model.setObject(output);
+        Result = output;
+    }
+
+    public String getResult() {
+        return Result;
     }
 }
