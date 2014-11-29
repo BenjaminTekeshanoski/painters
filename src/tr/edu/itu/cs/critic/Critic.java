@@ -12,7 +12,7 @@ import org.apache.wicket.model.Model;
 
 
 public class Critic extends TextField {
-    public Critic(String id, String subject, Model<String> model) {
+    public Critic(String id, int subjectID, Model<String> model) {
         super(id, model);
         Connection _db = null;
         String sqlite = "jdbc:sqlite:";
@@ -23,8 +23,8 @@ public class Critic extends TextField {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String query = "SELECT * FROM CRITICS WHERE subject='" + subject
-                + "' INNER JOIN REVIEWERS"
+        String query = "SELECT * FROM CRITICS WHERE subject=" + subjectID
+                + " INNER JOIN REVIEWERS"
                 + " ON CRITICS.REVIEWERID=REVIEWERS.id;";
         Statement statement = null;
         try {

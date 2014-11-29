@@ -46,7 +46,7 @@ public class RegisteredUser extends User implements GeneralMethods {
         }
         try {
             Statement statement2 = _db.createStatement();
-            query = "insert into USERS (name,surname,nickname,password) values ("
+            query = "insert into USERS (name,surname,nickname,password,AccessLevel) values ("
                     + "'"
                     + name
                     + "'"
@@ -56,7 +56,7 @@ public class RegisteredUser extends User implements GeneralMethods {
                     + "'"
                     + ","
                     + "'"
-                    + nickname + "'" + "," + "'" + password + "'" + ")";
+                    + nickname + "'" + "," + "'" + password + "'" + ",2)";
             statement.executeUpdate(query);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -95,7 +95,8 @@ public class RegisteredUser extends User implements GeneralMethods {
                 new RegisteredUser(results.getString("name"),
                         results.getString("surname"),
                         results.getString("nickname"),
-                        results.getString("password"));
+                        results.getString("password"),
+                        results.getInt("AccessLevel"));
 
                 return "Welcome " + results.getString("nickname");
             }
@@ -108,9 +109,9 @@ public class RegisteredUser extends User implements GeneralMethods {
     }
 
     public RegisteredUser(String name, String surname, String nickname,
-            String password) {
+            String password, int AccesLevel) {
 
-        super(name, surname, password, nickname, 2);
+        super(name, surname, password, nickname, AccesLevel);
 
     }
 

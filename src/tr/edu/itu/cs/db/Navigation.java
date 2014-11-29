@@ -10,6 +10,7 @@ import tr.edu.itu.cs.hca.LocationPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
 import tr.edu.itu.cs.ms.CommentPage;
+import tr.edu.itu.cs.users.Guest;
 import tr.edu.itu.cs.users.LogInPage;
 import tr.edu.itu.cs.users.SingUpPage;
 import tr.edu.itu.cs.users.User;
@@ -21,6 +22,19 @@ import tr.edu.tr.cs.sh.YourPaintingPage;
 public class Navigation extends Panel {
     public Navigation(String id) {
         super(id);
+        Link Logout = new Link("Logout") {
+
+            @Override
+            public void onClick() {
+                Guest g = new Guest();
+                this.setResponsePage(new HomePage());
+            }
+
+        };
+        if (User.user.getAccesslevel() == 1)
+            Logout.setVisibilityAllowed(false);
+        this.add(Logout);
+
         Link SingUpPage = new Link("SingUp") {
 
             @Override
