@@ -19,8 +19,10 @@ public class PaintingEditForm extends Form {
 
         this.add(new TextField("name"));
         this.add(new TextField("year"));
-        this.add(new TextField("location"));
+        this.add(new TextField("painter"));
         this.add(new TextField("desc"));
+        this.add(new TextField("place"));
+        this.add(new TextField("idiom"));
 
         this.newPainting = newPaintingFlag;
     }

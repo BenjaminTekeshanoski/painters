@@ -16,8 +16,9 @@ public final class PaintingDetailPage extends BasePage {
         this.add(new Label("name", aPainting.getName()));
         this.add(new Label("year", Integer.toString(aPainting.getYear())));
         this.add(new Label("painter", aPainting.getPainter()));
-
         this.add(new Label("desc", aPainting.getDesc()));
+        this.add(new Label("place", aPainting.getPlace()));
+        this.add(new Label("idiom", aPainting.getIdiom()));
 
         Link editLink = new Link("edit_link") {
             @Override
