@@ -4,7 +4,7 @@ public class Guest extends User implements GeneralMethods {
     private static int numberOfGuests = 0;
 
     public Guest() {
-        super(null, null, null, null, null, 1, numberOfGuests + 1);
+        super(null, null, null, null, 1);
         numberOfGuests++;
     }
 

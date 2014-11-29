@@ -8,6 +8,9 @@ import tr.edu.itu.cs.hca.LocationPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
 import tr.edu.itu.cs.ms.CommentPage;
+import tr.edu.itu.cs.users.LogInPage;
+import tr.edu.itu.cs.users.SingUpPage;
+import tr.edu.itu.cs.users.User;
 import tr.edu.tr.cs.sh.IdiomPage;
 import tr.edu.tr.cs.sh.PaintingPage;
 import tr.edu.tr.cs.sh.YourPaintingPage;
@@ -16,6 +19,31 @@ import tr.edu.tr.cs.sh.YourPaintingPage;
 public class Navigation extends Panel {
     public Navigation(String id) {
         super(id);
+        Link SingUpPage = new Link("SingUp") {
+
+            @Override
+            public void onClick() {
+                this.setResponsePage(new SingUpPage());
+
+            }
+
+        };
+        Link LogInPage = new Link("LogIn") {
+
+            @Override
+            public void onClick() {
+                this.setResponsePage(new LogInPage());
+
+            }
+
+        };
+        if (User.user.getAccesslevel() > 1) {
+            LogInPage.setVisible(false);
+            SingUpPage.setVisible(false);
+        }
+        this.add(LogInPage);
+        this.add(SingUpPage);
+
         Link homePageLink = new Link("home") {
             @Override
             public void onClick() {

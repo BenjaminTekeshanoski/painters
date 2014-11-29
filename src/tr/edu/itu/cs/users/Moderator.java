@@ -5,9 +5,8 @@ public class Moderator extends User implements GeneralMethods {
     private boolean onlineStatus;
 
     public Moderator(String name, String surname, String password,
-            String nickname, String email, int accessLevel, int id) {
-        super(name, surname, password, nickname, email, 3,
-                numberOfModerator + 1);
+            String nickname, int accessLevel, int id) {
+        super(name, surname, password, nickname, 3);
         numberOfModerator++;
         onlineStatus = false;
     }

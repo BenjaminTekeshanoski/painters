@@ -22,6 +22,7 @@ import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
 import tr.edu.itu.cs.ms.CommentCollectionJDBC;
 import tr.edu.itu.cs.ms.ICommentCollection;
+import tr.edu.itu.cs.users.Guest;
 import tr.edu.tr.cs.sh.IIdiomCollection;
 //Shuaib//
 import tr.edu.tr.cs.sh.IPaintingCollection;
@@ -48,6 +49,7 @@ public class WicketApplication extends WebApplication {
         super.init();
         this.initializeDb();
         this.createDB();
+        Guest g = new Guest();
         this._museum_collection = new MuseumCollectionJDBC();
         this._update_collection = new UpdateCollectionJDBC();
         this._location_collection = new LocationCollectionJDBC();
@@ -60,6 +62,7 @@ public class WicketApplication extends WebApplication {
 
     @Override
     public Class<? extends BasePage> getHomePage() {
+
         return HomePage.class;
     }
 

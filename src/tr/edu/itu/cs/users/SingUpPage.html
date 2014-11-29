@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  	<div id="page">
+	  	<header id="header">
+	  		<div id="headerimg"></div>
+	  		<div id="menu">Sign Up - Login - Search</div>
+	  	</header>
+	  	
+	  	<div id="content">
+	  		<nav id="navigation" wicket:id="mainNavigation">
+	  			navigation links
+	  		</nav>
+	  		<div align="center">
+	   			<form id="regisForm" wicket:id="regisForm">
+	  				<table>
+
+  						<tr>
+    						<th>Name</th>
+    						<th><input type="text" wicket:id="Name" /></th>
+  						</tr>
+  						<tr>
+    						<th>Surname</th>
+    						<th><input type="text" wicket:id="Surname" /></th>
+  						</tr>
+ 						<tr>
+  							  <td>Password</td>
+ 							  <td><input type="text" wicket:id="Password" /></td>
+ 						</tr>
+ 						<tr>
+  							  <td>nickname</td>
+ 							  <td><input type="text" wicket:id="nickname" /></td>
+ 						</tr>
+  						<tr>
+   							<td><input  wicket:id="button1"  type="submit" name="Regis" value="submit"/></td>    							
+  						</tr>
+  						<tr>
+   							<td>	<span wicket:id="result"> </span>	</td>    							
+  						</tr>
+					</table>
+	  			</form>
+			</div>
+		</div>
+	    <footer id="footer">
+	      <div id="datetime" wicket:id="datetime">
+	         Wed Sep 4 15:32:40 EEST 2013
+	      </div>
+	    </footer>
+	</div>
+  </body>
+</html>
