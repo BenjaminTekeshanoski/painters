@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class RegisteredUser extends User implements GeneralMethods {
+public class RegisteredUser extends User {
     private boolean onlineStatus;
     private static int numberOfRegisteredUsers;
 
@@ -117,18 +117,6 @@ public class RegisteredUser extends User implements GeneralMethods {
             String password, int AccesLevel) {
 
         super(name, surname, password, nickname, AccesLevel);
-
-    }
-
-    @Override
-    public void logOut() {
-        onlineStatus = false;
-
-    }
-
-    @Override
-    public void singIn() {
-        onlineStatus = true;
 
     }
 
