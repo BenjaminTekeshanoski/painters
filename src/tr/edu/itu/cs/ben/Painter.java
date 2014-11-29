@@ -4,9 +4,9 @@ public class Painter {
 
     private Integer id = null;
     private String name = null;
-    private String desc = null;
-    private String location = null;
-    private Integer year = null;
+    private String biography = null;
+    private String country = null;
+    private Integer age = null;
 
     public Painter() {
     }
@@ -15,11 +15,12 @@ public class Painter {
         this.setName(bName);
     }
 
-    public Painter(String bName, String bDesc, String bLocation, Integer bYear) {
+    public Painter(String bName, String bBiography, String bCountry,
+            Integer bAge) {
         this.setName(bName);
-        this.setDesc(bDesc);
-        this.setLocation(bLocation);
-        this.setYear(bYear);
+        this.setBiography(bBiography);
+        this.setCountry(bCountry);
+        this.setAge(bAge);
     }
 
     public Integer getId() {
@@ -38,28 +39,28 @@ public class Painter {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getCountry() {
+        return country;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getLocation() {
-        return location;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setBiography(String biography) {
+        this.biography = biography;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
 }

@@ -16,9 +16,9 @@ public class PainterEditForm extends Form {
         this.setModel(model);
 
         this.add(new TextField("name"));
-        this.add(new TextField("year"));
-        this.add(new TextField("location"));
-        this.add(new TextField("desc"));
+        this.add(new TextField("age"));
+        this.add(new TextField("country"));
+        this.add(new TextField("biography"));
 
         this.newPainter = newPainterFlag;
     }
