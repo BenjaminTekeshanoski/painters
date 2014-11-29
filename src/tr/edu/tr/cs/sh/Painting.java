@@ -5,9 +5,11 @@ public class Painting {
     private Integer id = null;
     private String name = null;
     private Integer year = null;
+    private String painter = null;
 
-    private String location = null;
     private String desc = null;
+    private String place = null;
+    private String idiom = null;
 
     // private String location = null;
 
@@ -19,13 +21,32 @@ public class Painting {
         this.setName(aName);
     }
 
-    public Painting(String name, Integer year, String location, String desc) {
+    public Painting(String name, Integer year, String painter, String desc,
+            String place, String idiom) {
 
         this.setName(name);
-        this.setLocation(location);
-        this.setDesc(desc);
         this.setYear(year);
+        this.setPainter(painter);
+        this.setDesc(desc);
+        this.setPlace(place);
+        this.setIdiom(idiom);
 
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getIdiom() {
+        return idiom;
+    }
+
+    public void setIdiom(String idiom) {
+        this.idiom = idiom;
     }
 
     public Integer getId() {
@@ -52,10 +73,6 @@ public class Painting {
         this.year = year;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getDesc() {
         return desc;
     }
@@ -64,8 +81,12 @@ public class Painting {
         this.desc = desc;
     }
 
-    public String getLocation() {
-        return location;
+    public String getPainter() {
+        return painter;
+    }
+
+    public void setPainter(String painter) {
+        this.painter = painter;
     }
 
 }

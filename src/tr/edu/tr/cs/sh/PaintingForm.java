@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class PaintingForm extends Form {
@@ -40,6 +41,8 @@ public class PaintingForm extends Form {
                 item.add(paintingLink);
             }
         };
+        if (User.user.getAccesslevel() < 3) // gokayin kodu
+            paintingListView.setEnabled(false);
         paintingCheckGroup.add(paintingListView);
     }
 
