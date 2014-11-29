@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class CommentForm extends Form {
@@ -46,9 +47,15 @@ public class CommentForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         ICommentCollection collection = app.getCommentCollection();
-        for (Comment comment : this.selectedComments) {
-            collection.deleteComment(comment);
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new ErrorPage());
+        } else {
+            for (Comment comment : this.selectedComments) {
+
+                collection.deleteComment(comment);
+            }
+
+            this.setResponsePage(new CommentPage());
         }
-        this.setResponsePage(new CommentPage());
     }
 }

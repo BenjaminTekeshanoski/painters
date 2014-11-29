@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class AwardForm extends Form {
@@ -46,9 +47,13 @@ public class AwardForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IAwardCollection collection = app.getAwardCollection();
-        for (Award award : this.selectedAwards) {
-            collection.deleteAward(award);
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new ErrorPage());
+        } else {
+            for (Award award : this.selectedAwards) {
+                collection.deleteAward(award);
+            }
+            this.setResponsePage(new AwardPage());
         }
-        this.setResponsePage(new AwardPage());
     }
 }

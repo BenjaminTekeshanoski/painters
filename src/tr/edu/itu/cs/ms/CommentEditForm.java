@@ -15,15 +15,20 @@ public class CommentEditForm extends Form {
         CompoundPropertyModel model = new CompoundPropertyModel(aComment);
         this.setModel(model);
 
-        this.add(new TextField("name"));
-        this.add(new TextField("owner"));
-        this.add(new TextField("target"));
+        TextField a = new TextField("name");
+        TextField b = new TextField("owner");
+        TextField c = new TextField("target");
+
+        this.add(a);
+        this.add(b);
+        this.add(c);
 
         this.newComment = newCommentFlag;
     }
 
     @Override
     public void onSubmit() {
+
         Comment comment = (Comment) this.getModelObject();
         WicketApplication app = (WicketApplication) this.getApplication();
         ICommentCollection collection = app.getCommentCollection();
@@ -34,5 +39,6 @@ public class CommentEditForm extends Form {
             collection.updateComment(comment);
         }
         this.setResponsePage(new CommentDetailPage(comment));
+
     }
 }

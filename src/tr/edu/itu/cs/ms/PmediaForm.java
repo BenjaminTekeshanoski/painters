@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class PmediaForm extends Form {
@@ -46,9 +47,13 @@ public class PmediaForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IPmediaCollection collection = app.getPmediaCollection();
-        for (Pmedia pmedia : this.selectedPmedias) {
-            collection.deletePmedia(pmedia);
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new ErrorPage());
+        } else {
+            for (Pmedia pmedia : this.selectedPmedias) {
+                collection.deletePmedia(pmedia);
+            }
+            this.setResponsePage(new PmediaPage());
         }
-        this.setResponsePage(new PmediaPage());
     }
 }
