@@ -32,6 +32,7 @@ CREATE TABLE PAINTINGSTYLE(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20
 
 
 INSERT INTO USERS(NAME,SURNAME,NICKNAME,PASSWORD,ACCESSLEVEL) VALUES("GÖKAY","ÞÝMÞEK","gokay","123456",3);
+INSERT INTO USERS(NAME,SURNAME,NICKNAME,PASSWORD,ACCESSLEVEL) VALUES("Hasan Can","Aydan","aydanh","123456",3);
 
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Louvre Museum", 1973, "Paris", "The world's most visited museum");
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Museum of Modern Art", 1929, "New York", "Most influential museum of modern art in the world");

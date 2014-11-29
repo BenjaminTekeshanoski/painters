@@ -3,7 +3,6 @@ package tr.edu.itu.cs.hca;
 import java.util.List;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
@@ -12,18 +11,17 @@ import tr.edu.tr.cs.sh.Painting;
 import tr.edu.tr.cs.sh.PaintingDetailPageLink;
 
 
-public final class MuseumDetailPage extends BasePage {
-    private Museum _museum;
+public final class LocationDetailPageUser extends BasePage {
+    private Location _location;
 
-    public MuseumDetailPage(Museum aMuseum) {
-        this._museum = aMuseum;
+    public LocationDetailPageUser(Location aLocation) {
+        this._location = aLocation;
 
-        this.add(new Label("name", aMuseum.getName()));
-        this.add(new Label("location", aMuseum.getLocation()));
-        this.add(new Label("year", Integer.toString(aMuseum.getYear())));
-        this.add(new Label("desc", aMuseum.getDesc()));
+        this.add(new Label("name", aLocation.getName()));
+        this.add(new Label("city", aLocation.getCity()));
+        this.add(new Label("desc", aLocation.getDesc()));
 
-        List<Painting> paintings = aMuseum.getPaintings();
+        List<Painting> paintings = aLocation.getPaintings();
 
         PropertyListView paintingListView = new PropertyListView(
                 "painting_list", paintings) {
@@ -37,19 +35,9 @@ public final class MuseumDetailPage extends BasePage {
             }
         };
         this.add(paintingListView);
-
-        Link editLink = new Link("edit_link") {
-            @Override
-            public void onClick() {
-                MuseumDetailPage parent = (MuseumDetailPage) this.getParent();
-                this.setResponsePage(new MuseumEditPage(parent.getMuseum(),
-                        false));
-            }
-        };
-        this.add(editLink);
     }
 
-    public Museum getMuseum() {
-        return this._museum;
+    public Location getMuseum() {
+        return this._location;
     }
 }

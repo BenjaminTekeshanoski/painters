@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import tr.edu.tr.cs.sh.Painting;
+
 
 public class MuseumCollectionJDBC implements IMuseumCollection {
     private Connection _db;
@@ -46,7 +48,29 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
 
                 Museum museum = new Museum(name, desc, location, year);
                 museum.setId(id);
+
+                query = "SELECT name, year, painter, desc, place, idiom FROM PAINTING WHERE(place = ?)";
+                PreparedStatement statement2 = this._db.prepareStatement(query);
+                statement2.setString(1, name);
+                ResultSet results2 = statement2.executeQuery();
+                while (results2.next()) {
+                    String pname = results2.getString("name");
+                    Integer pyear = results2.getInt("year");
+                    String ppainter = results2.getString("painter");
+                    String pdesc = results2.getString("desc");
+                    String pplace = results2.getString("place");
+                    String pidiom = results2.getString("idiom");
+
+                    Painting painting = new Painting(pname, pyear, ppainter,
+                            pdesc, pplace, pidiom);
+                    museum.addPainting(painting);
+
+                }
+
+                statement2.close();
+                results2.close();
                 museums.add(museum);
+
             }
             results.close();
             statement.close();

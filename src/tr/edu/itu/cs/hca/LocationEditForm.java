@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class LocationEditForm extends Form {
@@ -34,6 +35,10 @@ public class LocationEditForm extends Form {
         } else {
             collection.updateLocation(location);
         }
-        this.setResponsePage(new LocationDetailPage(location));
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new LocationDetailPageUser(location));
+        } else {
+            this.setResponsePage(new LocationDetailPage(location));
+        }
     }
 }

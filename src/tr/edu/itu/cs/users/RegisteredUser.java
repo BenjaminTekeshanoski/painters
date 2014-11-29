@@ -72,6 +72,7 @@ public class RegisteredUser extends User implements GeneralMethods {
         String sqlite = "jdbc:sqlite:";
         String home = System.getProperty("user.home");
         String jdbcURL = sqlite + home + File.separator + "painters.sqlite";
+
         try {
             _db = DriverManager.getConnection(jdbcURL);
         } catch (SQLException e) {
@@ -89,7 +90,8 @@ public class RegisteredUser extends User implements GeneralMethods {
         }
 
         try {
-            ResultSet results = statement.executeQuery(query);
+            final ResultSet results = statement.executeQuery(query);
+
             while (results.next()) {
 
                 new RegisteredUser(results.getString("name"),
@@ -97,11 +99,14 @@ public class RegisteredUser extends User implements GeneralMethods {
                         results.getString("nickname"),
                         results.getString("password"),
                         results.getInt("AccessLevel"));
-
-                return "Welcome " + results.getString("nickname");
+                String nn = results.getString("nickname");
+                results.close();
+                statement.close();
+                return "Welcome " + nn;
             }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            results.close();
+            statement.close();
+        } catch (SQLException e) { // TODO Auto-generated catch block
             e.printStackTrace();
             System.out.println("2part");
         }

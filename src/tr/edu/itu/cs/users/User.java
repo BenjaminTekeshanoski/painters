@@ -1,5 +1,7 @@
 package tr.edu.itu.cs.users;
 
+
+
 public class User {
     public static User user;
     private String nickName;

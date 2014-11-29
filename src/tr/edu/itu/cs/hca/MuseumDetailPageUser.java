@@ -3,7 +3,6 @@ package tr.edu.itu.cs.hca;
 import java.util.List;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
@@ -12,10 +11,10 @@ import tr.edu.tr.cs.sh.Painting;
 import tr.edu.tr.cs.sh.PaintingDetailPageLink;
 
 
-public final class MuseumDetailPage extends BasePage {
+public final class MuseumDetailPageUser extends BasePage {
     private Museum _museum;
 
-    public MuseumDetailPage(Museum aMuseum) {
+    public MuseumDetailPageUser(Museum aMuseum) {
         this._museum = aMuseum;
 
         this.add(new Label("name", aMuseum.getName()));
@@ -37,16 +36,6 @@ public final class MuseumDetailPage extends BasePage {
             }
         };
         this.add(paintingListView);
-
-        Link editLink = new Link("edit_link") {
-            @Override
-            public void onClick() {
-                MuseumDetailPage parent = (MuseumDetailPage) this.getParent();
-                this.setResponsePage(new MuseumEditPage(parent.getMuseum(),
-                        false));
-            }
-        };
-        this.add(editLink);
     }
 
     public Museum getMuseum() {

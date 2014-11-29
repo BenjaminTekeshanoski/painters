@@ -24,7 +24,7 @@ import tr.edu.itu.cs.hca.ILocationCollection;
 import tr.edu.itu.cs.hca.IMuseumCollection;
 import tr.edu.itu.cs.hca.IUpdateCollection;
 import tr.edu.itu.cs.hca.LocationCollectionJDBC;
-import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
+import tr.edu.itu.cs.hca.MuseumCollection;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
 import tr.edu.itu.cs.ms.AwardCollectionJDBC;
 import tr.edu.itu.cs.ms.CommentCollectionJDBC;
@@ -67,7 +67,7 @@ public class WicketApplication extends WebApplication {
         this.initializeDb();
         this.createDB();
         Guest g = new Guest();
-        this._museum_collection = new MuseumCollectionJDBC();
+        this._museum_collection = new MuseumCollection();
         this._update_collection = new UpdateCollectionJDBC();
         this._location_collection = new LocationCollectionJDBC();
         this._comment_collection = new CommentCollectionJDBC();
@@ -129,6 +129,10 @@ public class WicketApplication extends WebApplication {
 
     public IMuseumCollection getMuseumCollection() {
         return this._museum_collection;
+    }
+
+    public void setMuseumCollection() {
+        this._museum_collection = new MuseumCollection();
     }
 
     public IUpdateCollection getUpdateCollection() {

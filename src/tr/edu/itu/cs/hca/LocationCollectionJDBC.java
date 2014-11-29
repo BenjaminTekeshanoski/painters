@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import tr.edu.tr.cs.sh.Painting;
+
 
 public class LocationCollectionJDBC implements ILocationCollection {
     private Connection _db;
@@ -45,6 +47,28 @@ public class LocationCollectionJDBC implements ILocationCollection {
 
                 Location location = new Location(name, desc, city);
                 location.setId(id);
+
+                query = "SELECT name, year, painter, desc, place, idiom FROM PAINTING WHERE(place = ?)";
+                PreparedStatement statement2 = this._db.prepareStatement(query);
+                statement2.setString(1, name);
+                ResultSet results2 = statement2.executeQuery();
+                while (results2.next()) {
+                    String pname = results2.getString("name");
+                    Integer pyear = results2.getInt("year");
+                    String ppainter = results2.getString("painter");
+                    String pdesc = results2.getString("desc");
+                    String pplace = results2.getString("place");
+                    String pidiom = results2.getString("idiom");
+
+                    Painting painting = new Painting(pname, pyear, ppainter,
+                            pdesc, pplace, pidiom);
+                    location.addPainting(painting);
+
+                }
+
+                statement2.close();
+                results2.close();
+
                 locations.add(location);
             }
             results.close();

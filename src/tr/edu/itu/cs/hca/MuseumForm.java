@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class MuseumForm extends Form {
@@ -49,6 +50,10 @@ public class MuseumForm extends Form {
         for (Museum museum : this.selectedMuseums) {
             collection.deleteMuseum(museum);
         }
-        this.setResponsePage(new MuseumPage());
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new MuseumPageUser());
+        } else {
+            this.setResponsePage(new MuseumPage());
+        }
     }
 }

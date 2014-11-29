@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class MuseumEditForm extends Form {
@@ -34,6 +35,10 @@ public class MuseumEditForm extends Form {
         } else {
             collection.updateMuseum(museum);
         }
-        this.setResponsePage(new MuseumDetailPage(museum));
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new MuseumDetailPageUser(museum));
+        } else {
+            this.setResponsePage(new MuseumDetailPage(museum));
+        }
     }
 }

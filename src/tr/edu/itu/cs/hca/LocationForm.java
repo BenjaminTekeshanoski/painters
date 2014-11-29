@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class LocationForm extends Form {
@@ -49,6 +50,10 @@ public class LocationForm extends Form {
         for (Location location : this.selectedLocations) {
             collection.deleteLocation(location);
         }
-        this.setResponsePage(new LocationPage());
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new LocationPageUser());
+        } else {
+            this.setResponsePage(new LocationPage());
+        }
     }
 }

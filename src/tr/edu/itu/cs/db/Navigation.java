@@ -6,8 +6,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import tr.edu.itu.cs.ben.ExhibitionPage;
 import tr.edu.itu.cs.ben.PainterPage;
 import tr.edu.itu.cs.ben.PaintingStylePage;
-import tr.edu.itu.cs.hca.LocationPage;
-import tr.edu.itu.cs.hca.MuseumPage;
+import tr.edu.itu.cs.hca.LocationPageLink;
+import tr.edu.itu.cs.hca.MuseumPageLink;
 import tr.edu.itu.cs.hca.Updates;
 import tr.edu.itu.cs.ms.AwardPage;
 import tr.edu.itu.cs.ms.CommentPage;
@@ -112,20 +112,10 @@ public class Navigation extends Panel {
         };
         this.add(paintingstylePageLink);
 
-        Link museumPageLink = new Link("museums") {
-            @Override
-            public void onClick() {
-                this.setResponsePage(new MuseumPage());
-            }
-        };
+        MuseumPageLink museumPageLink = new MuseumPageLink("museums");
         this.add(museumPageLink);
 
-        Link locationPageLink = new Link("locations") {
-            @Override
-            public void onClick() {
-                this.setResponsePage(new LocationPage());
-            }
-        };
+        LocationPageLink locationPageLink = new LocationPageLink("locations");
         this.add(locationPageLink);
 
         Link updatesPageLink = new Link("updates") {
@@ -160,6 +150,7 @@ public class Navigation extends Panel {
                 WicketApplication app = (WicketApplication) this
                         .getApplication();
                 app.createDB();
+                app.setMuseumCollection();
             }
         };
         this.add(reloadDbLink);
