@@ -1,9 +1,5 @@
 package tr.edu.itu.cs.hca;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import tr.edu.tr.cs.sh.Painting;
 
 
 public class Museum {
@@ -12,15 +8,16 @@ public class Museum {
     private String desc = null;
     private String location = null;
     private Integer year = null;
-    private List<Painting> paintings = null;
+
+    // private List<Painting> paintings = null;
 
     public Museum() {
-        this.paintings = new LinkedList<Painting>();
+        // this.paintings = new LinkedList<Painting>();
     }
 
     public Museum(String aName) {
         this.setName(aName);
-        this.paintings = new LinkedList<Painting>();
+        // this.paintings = new LinkedList<Painting>();
     }
 
     public Museum(String aName, String aDesc, String aLocation, Integer aYear) {
@@ -28,7 +25,7 @@ public class Museum {
         this.setDesc(aDesc);
         this.setLocation(aLocation);
         this.setYear(aYear);
-        this.paintings = new LinkedList<Painting>();
+        // this.paintings = new LinkedList<Painting>();
 
     }
 
@@ -72,15 +69,13 @@ public class Museum {
         return this.desc;
     }
 
-    public void setPaintins(List<Painting> somePaintings) {
-        this.paintings = somePaintings;
-    }
-
-    public List<Painting> getPaintings() {
-        return this.paintings;
-    }
-
-    public void addPainting(Painting aPainting) {
-        this.paintings.add(aPainting);
-    }
+    /*
+     * public void setPaintins(List<Painting> somePaintings) { this.paintings =
+     * somePaintings; }
+     * 
+     * public List<Painting> getPaintings() { return this.paintings; }
+     * 
+     * public void addPainting(Painting aPainting) {
+     * this.paintings.add(aPainting); }
+     */
 }

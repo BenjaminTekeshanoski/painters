@@ -23,7 +23,9 @@ public final class MuseumDetailPage extends BasePage {
         this.add(new Label("year", Integer.toString(aMuseum.getYear())));
         this.add(new Label("desc", aMuseum.getDesc()));
 
-        List<Painting> paintings = aMuseum.getPaintings();
+        PaintingListGeneratorJDBC listgenerator = new PaintingListGeneratorJDBC();
+        List<Painting> paintings = listgenerator
+                .getPaintings(_museum.getName());
 
         PropertyListView paintingListView = new PropertyListView(
                 "painting_list", paintings) {

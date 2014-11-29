@@ -22,7 +22,9 @@ public final class LocationDetailPage extends BasePage {
         this.add(new Label("city", aLocation.getCity()));
         this.add(new Label("desc", aLocation.getDesc()));
 
-        List<Painting> paintings = aLocation.getPaintings();
+        PaintingListGeneratorJDBC listgenerator = new PaintingListGeneratorJDBC();
+        List<Painting> paintings = listgenerator.getPaintings(_location
+                .getName());
 
         PropertyListView paintingListView = new PropertyListView(
                 "painting_list", paintings) {
