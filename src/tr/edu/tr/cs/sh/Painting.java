@@ -1,6 +1,6 @@
 package tr.edu.tr.cs.sh;
 
-public class Painting-degis {
+public class Painting {
 
     private Integer id = null;
     private String name = null;
