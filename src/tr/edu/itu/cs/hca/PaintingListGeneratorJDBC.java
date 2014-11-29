@@ -35,7 +35,7 @@ public class PaintingListGeneratorJDBC {
     public List<Painting> getPaintings(String aName) {
         List<Painting> paintings = new LinkedList<Painting>();
         try {
-            String query = "SELECT name, year, painter, desc, place, idiom FROM PAINTING WHERE(place = ?)";
+            String query = "SELECT id, name, year, painter, desc, place, idiom FROM PAINTING WHERE(place = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setString(1, aName);
             ResultSet results = statement.executeQuery();
@@ -46,9 +46,11 @@ public class PaintingListGeneratorJDBC {
                 String pdesc = results.getString("desc");
                 String pplace = results.getString("place");
                 String pidiom = results.getString("idiom");
+                Integer pid = results.getInt("id");
 
                 Painting painting = new Painting(pname, pyear, ppainter, pdesc,
                         pplace, pidiom);
+                painting.setId(pid);
                 paintings.add(painting);
 
             }
