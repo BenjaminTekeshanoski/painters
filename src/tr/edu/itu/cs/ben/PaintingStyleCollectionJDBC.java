@@ -34,14 +34,14 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
     public List<PaintingStyle> getPaintingStyles() {
         List<PaintingStyle> paintingstyles = new LinkedList<PaintingStyle>();
         try {
-            String query = "SELECT id, paintname, year, stylename, desc FROM PAINTINGSTYLE";
+            String query = "SELECT id, stylename, year, paintname, desc FROM PAINTINGSTYLE";
             Statement statement = this._db.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
                 Integer id = results.getInt("id");
-                String paintname = results.getString("paintname");
-                Integer year = results.getInt("year");
                 String stylename = results.getString("stylename");
+                Integer year = results.getInt("year");
+                String paintname = results.getString("paintname");
                 String desc = results.getString("desc");
 
                 PaintingStyle paintingstyle = new PaintingStyle(paintname,
@@ -59,11 +59,11 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
 
     public void addPaintingStyle(PaintingStyle paintingstyle) {
         try {
-            String query = "INSERT INTO PAINTINGSTYLE(paintname,year, stylename, desc) VALUES(?,?,?,?)";
+            String query = "INSERT INTO PAINTINGSTYLE(stylename, year, paintname, desc) VALUES(?,?,?,?)";
             PreparedStatement statement = this._db.prepareStatement(query);
-            statement.setString(1, paintingstyle.getPaintname());
+            statement.setString(1, paintingstyle.getStylename());
             statement.setInt(2, paintingstyle.getYear());
-            statement.setString(3, paintingstyle.getStylename());
+            statement.setString(3, paintingstyle.getPaintname());
             statement.setString(4, paintingstyle.getDesc());
             statement.executeUpdate();
             statement.close();
@@ -86,11 +86,11 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
 
     public void updatePaintingStyle(PaintingStyle paintingstyle) {
         try {
-            String query = "UPDATE PAINTINGSTYLE SET paintname = ?, year = ?, stylename = ?, desc = ? WHERE(id = ?)";
+            String query = "UPDATE PAINTINGSTYLE SET stylename = ?, year = ?, paintname = ?, desc = ? WHERE(id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
-            statement.setString(1, paintingstyle.getPaintname());
+            statement.setString(1, paintingstyle.getStylename());
             statement.setInt(2, paintingstyle.getYear());
-            statement.setString(3, paintingstyle.getStylename());
+            statement.setString(3, paintingstyle.getPaintname());
             statement.setString(4, paintingstyle.getDesc());
             statement.setInt(5, paintingstyle.getId());
             statement.executeUpdate();

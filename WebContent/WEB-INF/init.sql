@@ -28,7 +28,7 @@ CREATE TABLE PMEDÝA(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), desc
 CREATE TABLE YOURPAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE PAINTER(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), age INTEGER, country VARCHAR(20), biography VARCHAR(1000), comment VARCHAR(1000), award VARCHAR(100), idiom VARCHAR(100));
 CREATE TABLE EXHIBITION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20));
-CREATE TABLE PAINTINGSTYLE(id INTEGER PRIMARY KEY AUTOINCREMENT, paintname VARCHAR(20), year INTEGER, stylename VARCHAR(20), desc VARCHAR(80));
+CREATE TABLE PAINTINGSTYLE(id INTEGER PRIMARY KEY AUTOINCREMENT, stylename VARCHAR(100),  year INTEGER, paintname VARCHAR(20), desc VARCHAR(80));
 
 
 INSERT INTO USERS(NAME,SURNAME,NICKNAME,PASSWORD,ACCESSLEVEL) VALUES("GÖKAY","ÞÝMÞEK","gokay","123456",3);
@@ -46,12 +46,12 @@ INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa"
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...", "muzeadi","Bodegón");
 INSERT INTO IDIOM(name, year, location, desc) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...");
 INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman " );
-INSERT INTO PAINTER(name, age, country, biography, comment, award, idiom) VALUES("Leonardo Da Vinci", 1929, "New York", "Most influential museum of modern art in the world", "Most influential", "Most influential", "Most influential");
+INSERT INTO PAINTER(name, age, country, biography, comment, award, idiom) VALUES("Leonardo da Vinci", 1929, "New York", "Most influential museum of modern art in the world", "Most influential", "Most influential", "Most influential");
 INSERT INTO PAINTER(name, age, country, biography, comment, award, idiom) VALUES("Pablo Picasso", 1929, "New York", "Most influential museum of modern art in the world", "Most influential", "Most influential", "Most influential");
 INSERT INTO EXHIBITION(name, year, location) VALUES("Turkey museums", 1929, "Turkey");
 INSERT INTO EXHIBITION(name, year, location) VALUES("Germany museums", 1929, "Germany");
-INSERT INTO PAINTINGSTYLE(paintname, year, stylename, desc) VALUES("Turkish style", 1929, "Turkey", "Most influential ex");
-INSERT INTO PAINTINGSTYLE(paintname, year, stylename, desc) VALUES("German style", 1929, "Germany", "Most influential museum of modern art in the world");
+INSERT INTO PAINTINGSTYLE(stylename, year, paintname, desc) VALUES("Turkish style", 1929, "Turkey", "Most influential ex");
+INSERT INTO PAINTINGSTYLE(stylename, year, paintname, desc) VALUES("German Style", 1929, "Girl with a Mandolin", "Most influential museum of modern art in the world");
 INSERT INTO COMMENT(name, owner, target) VALUES("yorumun kendisi", 11, "Mona Lisa");
 INSERT INTO COMMENT(name, owner, target) VALUES("yorum yaptým.", 12, "Guernica");
 INSERT INTO PMEDÝA(name,  desc) VALUES("Oil",  "Oil painting is the process of painting with pigments that are bound with a medium of drying oil—especially in early modern Europe, linseed oil. Often an oil such as linseed was boiled with a resin such as pine resin or even frankincense; these were called 'varnishes' and were prized for their body and gloss. Oil paint eventually became the principal medium used for creating artworks as its advantages became widely known. The transition began with Early Netherlandish painting in northern Europe, and by the height of the Renaissance oil painting techniques had almost completely replaced tempera paints in the majority of Europe.");

@@ -35,7 +35,7 @@ public class PaintingStyleForm extends Form {
                         .getModelObject();
                 PaintingStyleDetailPageLink paintingstyleLink = new PaintingStyleDetailPageLink(
                         "paintingstyle_link", paintingstyle);
-                paintingstyleLink.add(new Label("paintname"));
+                paintingstyleLink.add(new Label("stylename"));
                 item.add(new Check("selected", item.getModel()));
                 item.add(paintingstyleLink);
             }
