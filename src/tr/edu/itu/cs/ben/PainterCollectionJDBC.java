@@ -34,7 +34,7 @@ public class PainterCollectionJDBC implements IPainterCollection {
     public List<Painter> getPainters() {
         List<Painter> painters = new LinkedList<Painter>();
         try {
-            String query = "SELECT id, name, age, country, biography FROM PAINTER";
+            String query = "SELECT id, name, age, country, biography, comment, award, idiom FROM PAINTER";
             Statement statement = this._db.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
@@ -43,8 +43,12 @@ public class PainterCollectionJDBC implements IPainterCollection {
                 Integer age = results.getInt("age");
                 String country = results.getString("country");
                 String biography = results.getString("biography");
+                String comment = results.getString("comment");
+                String award = results.getString("award");
+                String idiom = results.getString("idiom");
 
-                Painter painter = new Painter(name, biography, country, age);
+                Painter painter = new Painter(name, biography, country, age,
+                        comment, award, idiom);
                 painter.setId(id);
                 painters.add(painter);
             }
@@ -58,12 +62,15 @@ public class PainterCollectionJDBC implements IPainterCollection {
 
     public void addPainter(Painter painter) {
         try {
-            String query = "INSERT INTO PAINTER(name,age, country, biography) VALUES(?,?,?,?)";
+            String query = "INSERT INTO PAINTER(name,age, country, biography, comment, award, idiom) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setString(1, painter.getName());
             statement.setInt(2, painter.getAge());
             statement.setString(3, painter.getCountry());
             statement.setString(4, painter.getBiography());
+            statement.setString(5, painter.getComment());
+            statement.setString(6, painter.getAward());
+            statement.setString(7, painter.getIdiom());
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -85,13 +92,16 @@ public class PainterCollectionJDBC implements IPainterCollection {
 
     public void updatePainter(Painter painter) {
         try {
-            String query = "UPDATE PAINTER SET name = ?, age = ?, country = ?, biography = ? WHERE(id = ?)";
+            String query = "UPDATE PAINTER SET name = ?, age = ?, country = ?, biography = ?, comment = ?, award = ?, idiom = ? WHERE(id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setString(1, painter.getName());
             statement.setInt(2, painter.getAge());
             statement.setString(3, painter.getCountry());
             statement.setString(4, painter.getBiography());
             statement.setInt(5, painter.getId());
+            statement.setString(6, painter.getComment());
+            statement.setString(7, painter.getAward());
+            statement.setString(8, painter.getIdiom());
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

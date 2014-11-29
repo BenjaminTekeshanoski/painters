@@ -19,7 +19,6 @@ public class ExhibitionEditForm extends Form {
         this.add(new TextField("name"));
         this.add(new TextField("year"));
         this.add(new TextField("location"));
-        this.add(new TextField("desc"));
 
         this.newExhibition = newExhibitionFlag;
     }

@@ -16,9 +16,9 @@ public class PaintingStyleEditForm extends Form {
         CompoundPropertyModel model = new CompoundPropertyModel(aPaintingStyle);
         this.setModel(model);
 
-        this.add(new TextField("name"));
+        this.add(new TextField("paintname"));
         this.add(new TextField("year"));
-        this.add(new TextField("location"));
+        this.add(new TextField("stylename"));
         this.add(new TextField("desc"));
 
         this.newPaintingStyle = newPaintingStyleFlag;

@@ -34,7 +34,7 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
     public List<Exhibition> getExhibitions() {
         List<Exhibition> exhibitions = new LinkedList<Exhibition>();
         try {
-            String query = "SELECT id, name, year, location, desc FROM EXHIBITION";
+            String query = "SELECT id, name, year, location FROM EXHIBITION";
             Statement statement = this._db.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
@@ -42,10 +42,8 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
                 String name = results.getString("name");
                 Integer year = results.getInt("year");
                 String location = results.getString("location");
-                String desc = results.getString("desc");
 
-                Exhibition exhibition = new Exhibition(name, desc, location,
-                        year);
+                Exhibition exhibition = new Exhibition(name, location, year);
                 exhibition.setId(id);
                 exhibitions.add(exhibition);
             }
@@ -59,12 +57,11 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
 
     public void addExhibition(Exhibition exhibition) {
         try {
-            String query = "INSERT INTO EXHIBITION(name,year, location, desc) VALUES(?,?,?,?)";
+            String query = "INSERT INTO EXHIBITION(name,year, location) VALUES(?,?,?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setString(1, exhibition.getName());
             statement.setInt(2, exhibition.getYear());
             statement.setString(3, exhibition.getLocation());
-            statement.setString(4, exhibition.getDesc());
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -86,12 +83,11 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
 
     public void updateExhibition(Exhibition exhibition) {
         try {
-            String query = "UPDATE EXHIBITION SET name = ?, year = ?, location = ?, desc = ? WHERE(id = ?)";
+            String query = "UPDATE EXHIBITION SET name = ?, year = ?, location = ? WHERE(id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setString(1, exhibition.getName());
             statement.setInt(2, exhibition.getYear());
             statement.setString(3, exhibition.getLocation());
-            statement.setString(4, exhibition.getDesc());
             statement.setInt(5, exhibition.getId());
             statement.executeUpdate();
             statement.close();

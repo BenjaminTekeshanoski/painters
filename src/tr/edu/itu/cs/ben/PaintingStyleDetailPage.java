@@ -12,8 +12,8 @@ public final class PaintingStyleDetailPage extends BasePage {
     public PaintingStyleDetailPage(PaintingStyle aPaintingStyle) {
         this._paintingstyle = aPaintingStyle;
 
-        this.add(new Label("name", aPaintingStyle.getName()));
-        this.add(new Label("location", aPaintingStyle.getLocation()));
+        this.add(new Label("paintname", aPaintingStyle.getPaintname()));
+        this.add(new Label("stylename", aPaintingStyle.getStylename()));
         this.add(new Label("year", Integer.toString(aPaintingStyle.getYear())));
         this.add(new Label("desc", aPaintingStyle.getDesc()));
 

@@ -3,7 +3,6 @@ package tr.edu.itu.cs.ben;
 public class Exhibition {
     private Integer id = null;
     private String name = null;
-    private String desc = null;
     private String location = null;
     private Integer year = null;
 
@@ -14,10 +13,8 @@ public class Exhibition {
         this.setName(bName);
     }
 
-    public Exhibition(String bName, String bDesc, String bLocation,
-            Integer bYear) {
+    public Exhibition(String bName, String bLocation, Integer bYear) {
         this.setName(bName);
-        this.setDesc(bDesc);
         this.setLocation(bLocation);
         this.setYear(bYear);
 
@@ -55,11 +52,4 @@ public class Exhibition {
         return this.year;
     }
 
-    public void setDesc(String aDesc) {
-        this.desc = aDesc;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
 }

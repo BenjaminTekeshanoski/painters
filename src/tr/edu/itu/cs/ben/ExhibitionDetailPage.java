@@ -15,7 +15,6 @@ public final class ExhibitionDetailPage extends BasePage {
         this.add(new Label("name", aExhibition.getName()));
         this.add(new Label("location", aExhibition.getLocation()));
         this.add(new Label("year", Integer.toString(aExhibition.getYear())));
-        this.add(new Label("desc", aExhibition.getDesc()));
 
         Link editLink = new Link("edit_link") {
             @Override

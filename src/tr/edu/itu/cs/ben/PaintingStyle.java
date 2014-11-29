@@ -2,24 +2,24 @@ package tr.edu.itu.cs.ben;
 
 public class PaintingStyle {
     private Integer id = null;
-    private String name = null;
+    private String paintname = null;
     private String desc = null;
-    private String location = null;
+    private String stylename = null;
     private Integer year = null;
 
     public PaintingStyle() {
     }
 
-    public PaintingStyle(String bName) {
-        this.setName(bName);
+    public PaintingStyle(String aName) {
+        this.setPaintname(aName);
     }
 
-    public PaintingStyle(String bName, String bDesc, String bLocation,
-            Integer bYear) {
-        this.setName(bName);
-        this.setDesc(bDesc);
-        this.setLocation(bLocation);
-        this.setYear(bYear);
+    public PaintingStyle(String aName, String aDesc, String aLocation,
+            Integer aYear) {
+        this.setPaintname(aName);
+        this.setDesc(aDesc);
+        this.setStylename(aLocation);
+        this.setYear(aYear);
 
     }
 
@@ -29,22 +29,6 @@ public class PaintingStyle {
 
     public int getId() {
         return this.id;
-    }
-
-    public void setName(String aName) {
-        this.name = aName;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setLocation(String aLocation) {
-        this.location = aLocation;
-    }
-
-    public String getLocation() {
-        return this.location;
     }
 
     public void setYear(Integer aYear) {
@@ -61,5 +45,21 @@ public class PaintingStyle {
 
     public String getDesc() {
         return this.desc;
+    }
+
+    public String getPaintname() {
+        return paintname;
+    }
+
+    public void setPaintname(String paintname) {
+        this.paintname = paintname;
+    }
+
+    public String getStylename() {
+        return stylename;
+    }
+
+    public void setStylename(String stylename) {
+        this.stylename = stylename;
     }
 }
