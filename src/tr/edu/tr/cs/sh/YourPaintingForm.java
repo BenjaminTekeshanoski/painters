@@ -41,6 +41,7 @@ public class YourPaintingForm extends Form {
                 item.add(yourPaintingLink);
             }
         };
+
         yourPaintingCheckGroup.add(yourPaintingListView);
     }
 
