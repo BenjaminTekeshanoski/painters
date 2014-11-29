@@ -1,8 +1,6 @@
 package tr.edu.tr.cs.sh;
 
 import org.apache.wicket.markup.html.link.Link;
-//import tr.edu.itu.cs.hca.Museum;
-//import tr.edu.itu.cs.hca.MuseumDetailPage;
 
 
 public class PaintingDetailPageLink extends Link {
