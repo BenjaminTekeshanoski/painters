@@ -4,6 +4,8 @@ DROP TABLE IF EXISTS UPDATES;
 DROP TABLE IF EXISTS PAINTING;
 DROP TABLE IF EXISTS IDIOM;
 DROP TABLE IF EXISTS COMMENT;
+DROP TABLE IF EXISTS AWARD;
+DROP TABLE IF EXISTS PMEDÝA;
 DROP TABLE IF EXISTS YOURPAINTING;
 DROP TABLE IF EXISTS CRITICS;
 DROP TABLE IF EXISTS REVIEWER;
@@ -20,7 +22,9 @@ CREATE TABLE LOCATION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), ci
 CREATE TABLE PAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE UPDATES(desc VARCHAR(80));
 CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
-CREATE TABLE COMMENT(id INTEGER PRIMARY KEY AUTOINCREMENT, owner VARCHAR(20), comment VARCHAR(80), target VARCHAR(20));
+CREATE TABLE COMMENT(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(1000), owner INTEGER, target VARCHAR(20));
+CREATE TABLE AWARD(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, owner VARCHAR(20));
+CREATE TABLE PMEDÝA(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), desc VARCHAR(1000));
 CREATE TABLE YOURPAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE PAINTER(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), age INTEGER, country VARCHAR(20), biography VARCHAR(80));
 CREATE TABLE EXHIBITION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
@@ -47,6 +51,12 @@ INSERT INTO EXHIBITION(name, year, location, desc) VALUES("Turkey museums", 1929
 INSERT INTO EXHIBITION(name, year, location, desc) VALUES("Germany museums", 1929, "Germany", "Most influential museum of modern art in the world");
 INSERT INTO PAINTINGSTYLE(name, year, location, desc) VALUES("Turkish style", 1929, "Turkey", "Most influential ex");
 INSERT INTO PAINTINGSTYLE(name, year, location, desc) VALUES("German style", 1929, "Germany", "Most influential museum of modern art in the world");
+INSERT INTO COMMENT(name, owner, target) VALUES("yorumun kendisi", 11, "Mona Lisa");
+INSERT INTO COMMENT(name, owner, target) VALUES("yorum yaptým.", 12, "Guernica");
+INSERT INTO PMEDÝA(name,  desc) VALUES("Oil",  "Oil painting is the process of painting with pigments that are bound with a medium of drying oil—especially in early modern Europe, linseed oil. Often an oil such as linseed was boiled with a resin such as pine resin or even frankincense; these were called 'varnishes' and were prized for their body and gloss. Oil paint eventually became the principal medium used for creating artworks as its advantages became widely known. The transition began with Early Netherlandish painting in northern Europe, and by the height of the Renaissance oil painting techniques had almost completely replaced tempera paints in the majority of Europe.");
+INSERT INTO PMEDÝA(name,  desc) VALUES("Pastel", "Pastel is a painting medium in the form of a stick, consisting of pure powdered pigment and a binder.[11] The pigments used in pastels are the same as those used to produce all colored art media, including oil paints; the binder is of a neutral hue and low saturation. The color effect of pastels is closer to the natural dry pigments than that of any other process.[12] Because the surface of a pastel painting is fragile and easily smudged, its preservation requires protective measures such as framing under glass; it may also be sprayed with a fixative. Nonetheless, when made with permanent pigments and properly cared for, a pastel painting may endure unchanged for centuries. Pastels are not susceptible, as are paintings made with a fluid medium, to the cracking and discoloration that result from changes in the color, opacity, or dimensions of the medium as it dries.");
+INSERT INTO AWARD(name, year, owner) VALUES("Louvre Museum Award", 1973, "Da vinci");
+INSERT INTO AWARD(name, year, owner) VALUES("Museum of Modern Art Award", 1929, "Williham adolph bougoure");
 
 INSERT INTO UPDATES(desc) VALUES("Created Application");
 INSERT INTO UPDATES(desc) VALUES("Added Museums");

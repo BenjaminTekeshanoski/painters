@@ -34,18 +34,18 @@ public class CommentCollectionJDBC implements ICommentCollection {
     public List<Comment> getComments() {
         List<Comment> comments = new LinkedList<Comment>();
         try {
-            String query = "SELECT id, owner,comment,target FROM COMMENT";
+            String query = "SELECT id, name, owner, target FROM COMMENT";
             Statement statement = this._db.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {
                 Integer id = results.getInt("id");
-                String comment = results.getString("comment");
-                String owner = results.getString("owner");
+                String name = results.getString("name");
+                Integer owner = results.getInt("owner");
                 String target = results.getString("target");
 
-                Comment comment1 = new Comment(comment, owner, target, id);
-
-                comments.add(comment1);
+                Comment comment = new Comment(name, owner, target);
+                comment.setId(id);
+                comments.add(comment);
             }
             results.close();
             statement.close();
@@ -57,12 +57,11 @@ public class CommentCollectionJDBC implements ICommentCollection {
 
     public void addComment(Comment comment) {
         try {
-            String query = "INSERT INTO COMMENT(comment,owner,target,id) VALUES(?,?,?,?)";
+            String query = "INSERT INTO COMMENT(name, owner, target) VALUES(?,?,?)";
             PreparedStatement statement = this._db.prepareStatement(query);
-            statement.setString(1, comment.getCom());
-            statement.setString(2, comment.getOwner());
+            statement.setString(1, comment.getName());
+            statement.setInt(2, comment.getOwner());
             statement.setString(3, comment.getTarget());
-            statement.setInt(4, comment.getId());
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -84,13 +83,12 @@ public class CommentCollectionJDBC implements ICommentCollection {
 
     public void updateComment(Comment comment) {
         try {
-            String query = "UPDATE COMMENT SET comment = ?, owner = ?, target = ? WHERE(id = ?)";
+            String query = "UPDATE COMMENT SET name = ?,owner = ?, target = ? WHERE(id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
-            statement.setString(1, comment.getCom());
-            statement.setString(2, comment.getOwner());
+            statement.setString(1, comment.getName());
+            statement.setInt(2, comment.getOwner());
             statement.setString(3, comment.getTarget());
             statement.setInt(4, comment.getId());
-
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

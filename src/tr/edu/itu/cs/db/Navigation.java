@@ -9,7 +9,9 @@ import tr.edu.itu.cs.ben.PaintingStylePage;
 import tr.edu.itu.cs.hca.LocationPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
+import tr.edu.itu.cs.ms.AwardPage;
 import tr.edu.itu.cs.ms.CommentPage;
+import tr.edu.itu.cs.ms.PmediaPage;
 import tr.edu.itu.cs.users.Guest;
 import tr.edu.itu.cs.users.LogInPage;
 import tr.edu.itu.cs.users.SingUpPage;
@@ -183,6 +185,20 @@ public class Navigation extends Panel {
         };
         this.add(commentPageLink);
 
+        Link awardPageLink = new Link("awards") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new AwardPage());
+            }
+        };
+        this.add(awardPageLink);
+        Link pmediaPageLink = new Link("pmedias") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new PmediaPage());
+            }
+        };
+        this.add(pmediaPageLink);
     }
 
 }

@@ -16,7 +16,7 @@ public class CommentPage extends BasePage {
         };
         this.add(commentAddLink);
 
-        CommentForm museumForm = new CommentForm("comment_form");
-        this.add(museumForm);
+        CommentForm commentForm = new CommentForm("comment_form");
+        this.add(commentForm);
     }
 }

@@ -15,7 +15,7 @@ public class CommentEditForm extends Form {
         CompoundPropertyModel model = new CompoundPropertyModel(aComment);
         this.setModel(model);
 
-        this.add(new TextField("comment"));
+        this.add(new TextField("name"));
         this.add(new TextField("owner"));
         this.add(new TextField("target"));
 
@@ -26,7 +26,7 @@ public class CommentEditForm extends Form {
     public void onSubmit() {
         Comment comment = (Comment) this.getModelObject();
         WicketApplication app = (WicketApplication) this.getApplication();
-        ICommentCollection collection = app.getCollection();
+        ICommentCollection collection = app.getCommentCollection();
 
         if (this.newComment) {
             collection.addComment(comment);

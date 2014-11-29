@@ -26,8 +26,12 @@ import tr.edu.itu.cs.hca.IUpdateCollection;
 import tr.edu.itu.cs.hca.LocationCollectionJDBC;
 import tr.edu.itu.cs.hca.MuseumCollectionJDBC;
 import tr.edu.itu.cs.hca.UpdateCollectionJDBC;
+import tr.edu.itu.cs.ms.AwardCollectionJDBC;
 import tr.edu.itu.cs.ms.CommentCollectionJDBC;
+import tr.edu.itu.cs.ms.IAwardCollection;
 import tr.edu.itu.cs.ms.ICommentCollection;
+import tr.edu.itu.cs.ms.IPmediaCollection;
+import tr.edu.itu.cs.ms.PmediaCollectionJDBC;
 import tr.edu.itu.cs.users.Guest;
 import tr.edu.tr.cs.sh.IIdiomCollection;
 //Shuaib//
@@ -46,6 +50,8 @@ public class WicketApplication extends WebApplication {
     private IUpdateCollection _update_collection;
     private ILocationCollection _location_collection;
     private ICommentCollection _comment_collection;
+    private IPmediaCollection _pmedia_collection;
+    private IAwardCollection _award_collection;
     private IPainterCollection _painter_collection;
     private IExhibitionCollection _exhibition_collection;
     private IPaintingStyleCollection _paintingstyle_collection;
@@ -65,6 +71,9 @@ public class WicketApplication extends WebApplication {
         this._update_collection = new UpdateCollectionJDBC();
         this._location_collection = new LocationCollectionJDBC();
         this._comment_collection = new CommentCollectionJDBC();
+        this._award_collection = new AwardCollectionJDBC();
+        this._pmedia_collection = new PmediaCollectionJDBC();
+
         // Shuaib//
         this._painting_collection = new PaintingCollectionJDBC();
         this._idiom_collection = new IdiomCollectionJDBC();
@@ -130,8 +139,16 @@ public class WicketApplication extends WebApplication {
         return this._location_collection;
     }
 
-    public ICommentCollection getCollection() {
+    public ICommentCollection getCommentCollection() {
         return this._comment_collection;
+    }
+
+    public IAwardCollection getAwardCollection() {
+        return this._award_collection;
+    }
+
+    public IPmediaCollection getPmediaCollection() {
+        return this._pmedia_collection;
     }
 
     // Shuaib//

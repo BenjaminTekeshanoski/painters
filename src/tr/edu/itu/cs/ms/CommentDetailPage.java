@@ -12,8 +12,8 @@ public final class CommentDetailPage extends BasePage {
     public CommentDetailPage(Comment aComment) {
         this._comment = aComment;
 
-        this.add(new Label("comment", aComment.getCom()));
-        this.add(new Label("owner", aComment.getOwner()));
+        this.add(new Label("name", aComment.getName()));
+        // this.add(new Label("owner", aComment.getOwner()));
         this.add(new Label("target", aComment.getTarget()));
 
         Link editLink = new Link("edit_link") {

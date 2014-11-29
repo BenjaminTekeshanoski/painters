@@ -24,7 +24,7 @@ public class CommentForm extends Form {
         this.add(commentCheckGroup);
 
         WicketApplication app = (WicketApplication) this.getApplication();
-        ICommentCollection collection = app.getCollection();
+        ICommentCollection collection = app.getCommentCollection();
         List<Comment> comments = collection.getComments();
 
         PropertyListView commentListView = new PropertyListView("comment_list",
@@ -33,7 +33,7 @@ public class CommentForm extends Form {
             protected void populateItem(ListItem item) {
                 Comment comment = (Comment) item.getModelObject();
                 CommentDetailPageLink commentLink = new CommentDetailPageLink(
-                        "museum_link", comment);
+                        "comment_link", comment);
                 commentLink.add(new Label("name"));
                 item.add(new Check("selected", item.getModel()));
                 item.add(commentLink);
@@ -45,7 +45,7 @@ public class CommentForm extends Form {
     @Override
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
-        ICommentCollection collection = app.getCollection();
+        ICommentCollection collection = app.getCommentCollection();
         for (Comment comment : this.selectedComments) {
             collection.deleteComment(comment);
         }

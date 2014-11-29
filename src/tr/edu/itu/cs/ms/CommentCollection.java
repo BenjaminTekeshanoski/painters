@@ -24,6 +24,5 @@ public class CommentCollection implements ICommentCollection {
     }
 
     public void updateComment(Comment aComment) {
-        // this.museums.update(aMuseum);
     }
 }
