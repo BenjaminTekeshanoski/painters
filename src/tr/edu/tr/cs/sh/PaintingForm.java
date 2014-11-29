@@ -40,15 +40,16 @@ public class PaintingForm extends Form {
                 item.add(paintingLink);
             }
         };
-        // if (User.user.getAccesslevel() < 3) // gokayin kodu
-        // paintingListView.setEnabled(false);
+
         paintingCheckGroup.add(paintingListView);
+
     }
 
     @Override
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IPaintingCollection collection = app.getPaintingCollection();
+
         for (Painting painting : this.selectedPaintings) {
             collection.deletePainting(painting);
         }

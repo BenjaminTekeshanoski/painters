@@ -3,12 +3,16 @@ package tr.edu.tr.cs.sh;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 
+import tr.edu.itu.cs.critic.Critic;
 import tr.edu.itu.cs.db.BasePage;
+import tr.edu.itu.cs.hca.Museum;
+import tr.edu.itu.cs.hca.MuseumDetailPageLink;
 
 
 public final class PaintingDetailPage extends BasePage {
 
     private Painting _painting;
+    private Museum _museum;
 
     public PaintingDetailPage(Painting aPainting) {
         this._painting = aPainting;
@@ -20,6 +24,14 @@ public final class PaintingDetailPage extends BasePage {
         this.add(new Label("place", aPainting.getPlace()));
         this.add(new Label("idiom", aPainting.getIdiom()));
 
+        MuseumListGeneratorJDBC listgenerator = new MuseumListGeneratorJDBC();
+        this._museum = listgenerator.getMuseums(_painting.getPlace());
+
+        MuseumDetailPageLink museumLink = new MuseumDetailPageLink(
+                "museum_link", _museum);
+        museumLink.add(new Label("pname", _museum.getName()));
+        this.add(museumLink);
+
         Link editLink = new Link("edit_link") {
             @Override
             public void onClick() {
@@ -30,6 +42,10 @@ public final class PaintingDetailPage extends BasePage {
             }
         };
         this.add(editLink);
+
+        Critic critic = new Critic(aPainting.getId());
+        this.add(new Label("mesage", critic.getResult()));
+
     }
 
     public Painting getPainting() {

@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class PaintingEditForm extends Form {
@@ -29,15 +30,19 @@ public class PaintingEditForm extends Form {
 
     @Override
     public void onSubmit() {
-        Painting painting = (Painting) this.getModelObject();
-        WicketApplication app = (WicketApplication) this.getApplication();
-        IPaintingCollection collection = app.getPaintingCollection();
+        if (User.user.getAccesslevel() == 3) { // / Gokayin kodu eger adminse
+                                               // degistirebilir yani bu kod
+                                               // calisir
+            Painting painting = (Painting) this.getModelObject();
+            WicketApplication app = (WicketApplication) this.getApplication();
+            IPaintingCollection collection = app.getPaintingCollection();
 
-        if (this.newPainting) {
-            collection.addPainting(painting);
-        } else {
-            collection.updatePainting(painting);
+            if (this.newPainting) {
+                collection.addPainting(painting);
+            } else {
+                collection.updatePainting(painting);
+            }
+            this.setResponsePage(new PaintingDetailPage(painting));
         }
-        this.setResponsePage(new PaintingDetailPage(painting));
     }
 }
