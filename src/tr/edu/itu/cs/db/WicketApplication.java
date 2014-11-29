@@ -14,6 +14,12 @@ import javax.servlet.ServletContext;
 
 import org.apache.wicket.protocol.http.WebApplication;
 
+import tr.edu.itu.cs.ben.ExhibitionCollectionJDBC;
+import tr.edu.itu.cs.ben.IExhibitionCollection;
+import tr.edu.itu.cs.ben.IPainterCollection;
+import tr.edu.itu.cs.ben.IPaintingStyleCollection;
+import tr.edu.itu.cs.ben.PainterCollectionJDBC;
+import tr.edu.itu.cs.ben.PaintingStyleCollectionJDBC;
 import tr.edu.itu.cs.hca.ILocationCollection;
 import tr.edu.itu.cs.hca.IMuseumCollection;
 import tr.edu.itu.cs.hca.IUpdateCollection;
@@ -32,12 +38,17 @@ import tr.edu.tr.cs.sh.PaintingCollectionJDBC;
 import tr.edu.tr.cs.sh.YourPaintingCollectionJDBC;
 
 
+//Benjamin
+
 public class WicketApplication extends WebApplication {
     private Connection _conn;
     private IMuseumCollection _museum_collection;
     private IUpdateCollection _update_collection;
     private ILocationCollection _location_collection;
     private ICommentCollection _comment_collection;
+    private IPainterCollection _painter_collection;
+    private IExhibitionCollection _exhibition_collection;
+    private IPaintingStyleCollection _paintingstyle_collection;
 
     // Shuaib//
     private IPaintingCollection _painting_collection;
@@ -58,6 +69,10 @@ public class WicketApplication extends WebApplication {
         this._painting_collection = new PaintingCollectionJDBC();
         this._idiom_collection = new IdiomCollectionJDBC();
         this._yourpainting_collection = new YourPaintingCollectionJDBC();
+
+        this._painter_collection = new PainterCollectionJDBC();
+        this._exhibition_collection = new ExhibitionCollectionJDBC();
+        this._paintingstyle_collection = new PaintingStyleCollectionJDBC();
     }
 
     @Override
@@ -131,6 +146,21 @@ public class WicketApplication extends WebApplication {
 
     public IYourPaintingCollection getYourPaintingCollection() {
         return this._yourpainting_collection;
+
+    }
+
+    public IPainterCollection getPainterCollection() {
+        return this._painter_collection;
+
+    }
+
+    public IExhibitionCollection getExhibitionCollection() {
+        return this._exhibition_collection;
+
+    }
+
+    public IPaintingStyleCollection getPaintingStyleCollection() {
+        return this._paintingstyle_collection;
 
     }
 

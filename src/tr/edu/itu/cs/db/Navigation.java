@@ -3,7 +3,9 @@ package tr.edu.itu.cs.db;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import tr.edu.itu.cs.bt.PaintersPage;
+import tr.edu.itu.cs.ben.ExhibitionPage;
+import tr.edu.itu.cs.ben.PainterPage;
+import tr.edu.itu.cs.ben.PaintingStylePage;
 import tr.edu.itu.cs.hca.LocationPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
@@ -67,12 +69,32 @@ public class Navigation extends Panel {
         Link paintersPageLink = new Link("painters") {
             @Override
             public void onClick() {
-                this.setResponsePage(new PaintersPage()); // buraya
-                                                          // oluþturduðunuz
+                this.setResponsePage(new PainterPage()); // buraya
+                                                         // oluþturduðunuz
                 // painters page i ekleyin
             }
         };
         this.add(paintersPageLink);
+
+        Link exhibitionsPageLink = new Link("exhibitions") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new ExhibitionPage()); // buraya
+                                                            // oluþturduðunuz
+                // painters page i ekleyin
+            }
+        };
+        this.add(exhibitionsPageLink);
+
+        Link paintingstylePageLink = new Link("paintingstyles") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new PaintingStylePage()); // buraya
+                // oluþturduðunuz
+                // painters page i ekleyin
+            }
+        };
+        this.add(paintingstylePageLink);
 
         Link museumPageLink = new Link("museums") {
             @Override
