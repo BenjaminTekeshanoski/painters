@@ -60,14 +60,14 @@ div#datetime {
 }
 
 #navigation{
-	width: 100px;
+	width: 150px;
 	height: 100%;
 	position: absolute;
 }
 
 #main {
 	position:absolute;
-	left:150px;
+	left:200px;
 	height:100%;
 }
 

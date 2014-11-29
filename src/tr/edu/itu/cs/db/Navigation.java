@@ -4,6 +4,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 
 import tr.edu.itu.cs.bt.PaintersPage;
+import tr.edu.itu.cs.hca.LocationPage;
 import tr.edu.itu.cs.hca.MuseumPage;
 import tr.edu.itu.cs.hca.Updates;
 import tr.edu.itu.cs.ms.CommentPage;
@@ -52,6 +53,14 @@ public class Navigation extends Panel {
             }
         };
         this.add(museumPageLink);
+
+        Link locationPageLink = new Link("locations") {
+            @Override
+            public void onClick() {
+                this.setResponsePage(new LocationPage());
+            }
+        };
+        this.add(locationPageLink);
 
         Link updatesPageLink = new Link("updates") {
             @Override
