@@ -30,6 +30,11 @@ CREATE TABLE PAINTER(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), age
 CREATE TABLE EXHIBITION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20));
 CREATE TABLE PAINTINGSTYLE(id INTEGER PRIMARY KEY AUTOINCREMENT, stylename VARCHAR(100),  year INTEGER, paintname VARCHAR(20), desc VARCHAR(80));
 
+INSERT INTO  CRITICS(REVIEWERID,CRITIC,SUBJECT) VALUES(1,"One of best painting in the world",1);
+INSERT INTO  CRITICS(REVIEWERID,CRITIC,SUBJECT) VALUES(2,"I think girl had a trafic acsident",2);
+
+INSERT INTO REVIEWER(FULLNAME) VALUES ("Mr. Brown");
+INSERT INTO REVIEWER(FULLNAME) VALUES ("James smith");
 
 INSERT INTO USERS(NAME,SURNAME,NICKNAME,PASSWORD,ACCESSLEVEL) VALUES("GÖKAY","ÞÝMÞEK","gokay","123456",3);
 INSERT INTO USERS(NAME,SURNAME,NICKNAME,PASSWORD,ACCESSLEVEL) VALUES("Hasan Can","Aydan","aydanh","123456",3);
@@ -42,8 +47,10 @@ INSERT INTO MUSEUM(name, year, location, desc) VALUES("Rijksmuseum", 1800, "Amst
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Museo Reina Sofia", 1992, "Madrid", "Spain's national museum of 20th-century art");
 INSERT INTO LOCATION(name, city, desc) VALUES("The Sistine Chapel", "Vatican City", "The Sistine Chapel is a large and renowned chapel in the Apostolic Palace, the official residence of the Pope" );
 INSERT INTO LOCATION(name, city, desc) VALUES("Santa Maria delle Grazie Monastery", "Milan", "Santa Maria delle Grazie is a church and Dominican convent in Milan, northern Italy" );
-INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman ","Louvre Museum",  "Allegory");
+
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa", 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman ","Louvre Museum",  "Allegory");
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...", "muzeadi","Bodegón");
+
 INSERT INTO IDIOM(name, year, location, desc) VALUES("Allegory"	, 1910, "Pablo Picasso" ,"...");
 INSERT INTO IDIOM(name, year, location, desc) VALUES("Bodegón"	, 1914, "Leonardo davinci" ,".45..");
 INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman " );
