@@ -151,6 +151,7 @@ public class Navigation extends Panel {
                         .getApplication();
                 app.createDB();
                 app.setMuseumCollection();
+                app.setLocationCollection();
             }
         };
         this.add(reloadDbLink);

@@ -89,6 +89,12 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             statement.setString(4, museum.getDesc());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Added " + museum.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -101,6 +107,12 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             statement.setInt(1, museum.getId());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Deleted " + museum.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -117,6 +129,12 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             statement.setInt(5, museum.getId());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Updated " + museum.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }

@@ -34,7 +34,7 @@ public class UpdateCollectionJDBC implements IUpdateCollection {
     public List<Update> getUpdates() {
         List<Update> updates = new LinkedList<Update>();
         try {
-            String query = "SELECT desc FROM UPDATES";
+            String query = "SELECT desc FROM UPDATES ORDER BY id DESC";
             Statement statement = this._db.createStatement();
             ResultSet results = statement.executeQuery(query);
             while (results.next()) {

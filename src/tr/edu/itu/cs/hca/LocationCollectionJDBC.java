@@ -87,6 +87,12 @@ public class LocationCollectionJDBC implements ILocationCollection {
             statement.setString(3, location.getDesc());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Added " + location.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -99,6 +105,12 @@ public class LocationCollectionJDBC implements ILocationCollection {
             statement.setInt(1, location.getId());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Deleted " + location.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -114,6 +126,12 @@ public class LocationCollectionJDBC implements ILocationCollection {
             statement.setInt(4, location.getId());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Updated " + location.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
