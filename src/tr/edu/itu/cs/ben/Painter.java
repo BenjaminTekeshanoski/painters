@@ -7,9 +7,7 @@ public class Painter {
     private String biography = null;
     private String country = null;
     private Integer age = null;
-    private String comment = null;
-    private String award = null;
-    private String idiom = null;
+    private String paintname = null;
 
     public Painter() {
     }
@@ -19,14 +17,12 @@ public class Painter {
     }
 
     public Painter(String bName, String bBiography, String bCountry,
-            Integer bAge, String bComment, String bAward, String bIdiom) {
+            Integer bAge, String bPaintname) {
         this.setName(bName);
         this.setBiography(bBiography);
         this.setCountry(bCountry);
         this.setAge(bAge);
-        this.setComment(bComment);
-        this.setAward(bAward);
-        this.setIdiom(bIdiom);
+        this.setPaintname(bPaintname);
     }
 
     public Integer getId() {
@@ -69,28 +65,12 @@ public class Painter {
         this.age = age;
     }
 
-    public String getAward() {
-        return award;
+    public String getPaintname() {
+        return paintname;
     }
 
-    public void setAward(String award) {
-        this.award = award;
-    }
-
-    public String getIdiom() {
-        return idiom;
-    }
-
-    public void setIdiom(String idiom) {
-        this.idiom = idiom;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setPaintname(String paintname) {
+        this.paintname = paintname;
     }
 
 }

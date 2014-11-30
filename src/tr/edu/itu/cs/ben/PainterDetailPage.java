@@ -22,9 +22,7 @@ public final class PainterDetailPage extends BasePage {
         this.add(new Label("country", aPainter.getCountry()));
         this.add(new Label("age", Integer.toString(aPainter.getAge())));
         this.add(new Label("biography", aPainter.getBiography()));
-        this.add(new Label("comment", aPainter.getComment()));
-        this.add(new Label("award", aPainter.getAward()));
-        this.add(new Label("idiom", aPainter.getIdiom()));
+        this.add(new Label("paintname", aPainter.getPaintname()));
 
         PaintingListGeneratorJDBC listgenerator = new PaintingListGeneratorJDBC();
         List<Painting> paintings = listgenerator.getPaintings(_painter
