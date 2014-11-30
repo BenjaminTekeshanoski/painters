@@ -21,7 +21,7 @@ CREATE TABLE MUSEUM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year
 CREATE TABLE LOCATION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), city VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE PAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, painter VARCHAR(20), desc VARCHAR(80), place VARCHAR(80), idiom VARCHAR(30));
 CREATE TABLE UPDATES(desc VARCHAR(80));
-CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
+CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(500));
 CREATE TABLE COMMENT(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(1000), owner INTEGER, target VARCHAR(20));
 CREATE TABLE AWARD(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, owner VARCHAR(20));
 CREATE TABLE PMEDÝA(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), desc VARCHAR(1000));
@@ -44,7 +44,8 @@ INSERT INTO LOCATION(name, city, desc) VALUES("The Sistine Chapel", "Vatican Cit
 INSERT INTO LOCATION(name, city, desc) VALUES("Santa Maria delle Grazie Monastery", "Milan", "Santa Maria delle Grazie is a church and Dominican convent in Milan, northern Italy" );
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman ","Louvre Museum",  "Allegory");
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...", "muzeadi","Bodegón");
-INSERT INTO IDIOM(name, year, location, desc) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...");
+INSERT INTO IDIOM(name, year, location, desc) VALUES("Allegory"	, 1910, "Pablo Picasso" ,"...");
+INSERT INTO IDIOM(name, year, location, desc) VALUES("Bodegón"	, 1914, "Leonardo davinci" ,".45..");
 INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman " );
 INSERT INTO PAINTER(name, age, country, biography, comment, award, idiom) VALUES("Leonardo da Vinci", 1929, "New York", "Most influential museum of modern art in the world", "Most influential", "Most influential", "Most influential");
 INSERT INTO PAINTER(name, age, country, biography, comment, award, idiom) VALUES("Pablo Picasso", 1929, "New York", "Most influential museum of modern art in the world", "Most influential", "Most influential", "Most influential");
