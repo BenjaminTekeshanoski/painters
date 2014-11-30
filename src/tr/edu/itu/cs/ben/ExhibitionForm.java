@@ -11,6 +11,8 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.ms.ErrorPage;
+import tr.edu.itu.cs.users.User;
 
 
 public class ExhibitionForm extends Form {
@@ -46,9 +48,13 @@ public class ExhibitionForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IExhibitionCollection collection = app.getExhibitionCollection();
-        for (Exhibition exhibition : this.selectedExhibitions) {
-            collection.deleteExhibition(exhibition);
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new ErrorPage());
+        } else {
+            for (Exhibition exhibition : this.selectedExhibitions) {
+                collection.deleteExhibition(exhibition);
+            }
+            this.setResponsePage(new ExhibitionPage());
         }
-        this.setResponsePage(new ExhibitionPage());
     }
 }

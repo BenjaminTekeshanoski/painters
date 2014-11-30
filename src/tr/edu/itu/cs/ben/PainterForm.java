@@ -11,6 +11,8 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.ms.ErrorPage;
+import tr.edu.itu.cs.users.User;
 
 
 public class PainterForm extends Form {
@@ -47,9 +49,14 @@ public class PainterForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IPainterCollection collection = app.getPainterCollection();
-        for (Painter painter : this.selectedPainters) {
-            collection.deletePainter(painter);
+        if (User.user.getAccesslevel() < 3) {
+            this.setResponsePage(new ErrorPage());
+        } else {
+            for (Painter painter : this.selectedPainters) {
+                collection.deletePainter(painter);
+            }
+            this.setResponsePage(new PainterPage());
         }
-        this.setResponsePage(new PainterPage());
+
     }
 }
