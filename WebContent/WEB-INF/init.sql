@@ -47,6 +47,9 @@ INSERT INTO MUSEUM(name, year, location, desc) VALUES("Rijksmuseum", 1800, "Amst
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Museo Reina Sofia", 1992, "Madrid", "Spain's national museum of 20th-century art");
 INSERT INTO LOCATION(name, city, desc) VALUES("The Sistine Chapel", "Vatican City", "The Sistine Chapel is a large and renowned chapel in the Apostolic Palace, the official residence of the Pope" );
 INSERT INTO LOCATION(name, city, desc) VALUES("Santa Maria delle Grazie Monastery", "Milan", "Santa Maria delle Grazie is a church and Dominican convent in Milan, northern Italy" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Taktsang Palphug Monastery", "Bhutan", "A prominent Himalayan Buddhist sacred site and temple complex" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Ajanta Caves", "Maharashtra", "The caves form the largest corpus of early Indian wall-painting" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Siena Cathedral", "Siena", "The origins of the first structure are obscure and shrouded in legend" );
 
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa", 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman ","Louvre Museum",  "Allegory");
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...", "muzeadi","Bodegón");
@@ -85,4 +88,4 @@ INSERT INTO UPDATES(desc) VALUES("Added Exhibitions");
 INSERT INTO UPDATES(desc) VALUES("Added Awards"); 
 INSERT INTO UPDATES(desc) VALUES("Added Painting Medias"); 
 INSERT INTO UPDATES(desc) VALUES("Added Add Your Paintings"); 
-INSERT INTO UPDATES(desc) VALUES("Added Painting Styles");    
+INSERT INTO UPDATES(desc) VALUES("Added Painting Styles");   
