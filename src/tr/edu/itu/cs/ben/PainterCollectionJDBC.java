@@ -69,6 +69,13 @@ public class PainterCollectionJDBC implements IPainterCollection {
             statement.setString(5, painter.getPaintname());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Added " + painter.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -79,6 +86,13 @@ public class PainterCollectionJDBC implements IPainterCollection {
             String query = "DELETE FROM PAINTER WHERE (id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setInt(1, painter.getId());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Deleted " + painter.getName();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -96,6 +110,13 @@ public class PainterCollectionJDBC implements IPainterCollection {
             statement.setString(4, painter.getBiography());
             statement.setInt(5, painter.getId());
             statement.setString(6, painter.getPaintname());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Updated " + painter.getName();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

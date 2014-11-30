@@ -93,6 +93,7 @@ public class LocationCollectionJDBC implements ILocationCollection {
             String desc = "Added " + location.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -111,6 +112,7 @@ public class LocationCollectionJDBC implements ILocationCollection {
             String desc = "Deleted " + location.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -132,6 +134,7 @@ public class LocationCollectionJDBC implements ILocationCollection {
             String desc = "Updated " + location.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }

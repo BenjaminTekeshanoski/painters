@@ -67,6 +67,13 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
             statement.setString(4, paintingstyle.getDesc());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Added " + paintingstyle.getStylename();
+            statement.setString(1, desc);
+            statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -77,6 +84,13 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
             String query = "DELETE FROM PAINTINGSTYLE WHERE (id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setInt(1, paintingstyle.getId());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Deleted " + paintingstyle.getStylename();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -93,6 +107,13 @@ public class PaintingStyleCollectionJDBC implements IPaintingStyleCollection {
             statement.setString(3, paintingstyle.getPaintname());
             statement.setString(4, paintingstyle.getDesc());
             statement.setInt(5, paintingstyle.getId());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Updated " + paintingstyle.getStylename();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

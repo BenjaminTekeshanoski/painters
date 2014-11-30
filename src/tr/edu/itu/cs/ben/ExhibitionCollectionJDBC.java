@@ -64,6 +64,13 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
             statement.setString(3, exhibition.getLocation());
             statement.executeUpdate();
             statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Added " + exhibition.getName();
+            statement.setString(1, desc);
+            statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -74,6 +81,13 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
             String query = "DELETE FROM EXHIBITION WHERE (id = ?)";
             PreparedStatement statement = this._db.prepareStatement(query);
             statement.setInt(1, exhibition.getId());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Deleted " + exhibition.getName();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
@@ -89,6 +103,13 @@ public class ExhibitionCollectionJDBC implements IExhibitionCollection {
             statement.setInt(2, exhibition.getYear());
             statement.setString(3, exhibition.getLocation());
             statement.setInt(5, exhibition.getId());
+            statement.executeUpdate();
+            statement.close();
+
+            query = "INSERT INTO UPDATES(desc) VALUES(?)";
+            statement = this._db.prepareStatement(query);
+            String desc = "Updated " + exhibition.getName();
+            statement.setString(1, desc);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

@@ -95,6 +95,8 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             String desc = "Added " + museum.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -113,6 +115,7 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             String desc = "Deleted " + museum.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
@@ -135,6 +138,7 @@ public class MuseumCollectionJDBC implements IMuseumCollection {
             String desc = "Updated " + museum.getName();
             statement.setString(1, desc);
             statement.executeUpdate();
+            statement.close();
         } catch (SQLException e) {
             throw new UnsupportedOperationException(e.getMessage());
         }
