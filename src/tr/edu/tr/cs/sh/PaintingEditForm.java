@@ -30,19 +30,28 @@ public class PaintingEditForm extends Form {
 
     @Override
     public void onSubmit() {
-        if (User.user.getAccesslevel() == 3) { // / Gokayin kodu eger adminse
-                                               // degistirebilir yani bu kod
-                                               // calisir
-            Painting painting = (Painting) this.getModelObject();
-            WicketApplication app = (WicketApplication) this.getApplication();
-            IPaintingCollection collection = app.getPaintingCollection();
+        // degistirebilir yani bu kod
+        // calisir
+        Painting painting = (Painting) this.getModelObject();
+        WicketApplication app = (WicketApplication) this.getApplication();
+        IPaintingCollection collection = app.getPaintingCollection();
 
+        if (User.user.getAccesslevel() < 3) { // / Gokayin kodu eger adminse
+
+            this.setResponsePage(new ErrorPage());
+
+        } else {
             if (this.newPainting) {
                 collection.addPainting(painting);
             } else {
                 collection.updatePainting(painting);
             }
-            this.setResponsePage(new PaintingDetailPage(painting));
+            if (painting.getId() != null) {
+                this.setResponsePage(new PaintingDetailPage(painting));
+            } else {
+                this.setResponsePage(new PaintingPage());
+            }
         }
+
     }
 }

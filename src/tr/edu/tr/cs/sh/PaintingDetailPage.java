@@ -13,6 +13,7 @@ public final class PaintingDetailPage extends BasePage {
 
     private Painting _painting;
     private Museum _museum;
+    private Idiom _idiom;
 
     public PaintingDetailPage(Painting aPainting) {
         this._painting = aPainting;
@@ -31,6 +32,14 @@ public final class PaintingDetailPage extends BasePage {
                 "museum_link", _museum);
         museumLink.add(new Label("pname", _museum.getName()));
         this.add(museumLink);
+
+        IdiomListGeneratorJDBC listgenerators = new IdiomListGeneratorJDBC();
+        this._idiom = listgenerators.getIdioms(_painting.getIdiom());
+
+        IdiomDetailPageLink idiomLink = new IdiomDetailPageLink("idiom_link",
+                _idiom);
+        idiomLink.add(new Label("pnames", _idiom.getName()));
+        this.add(idiomLink);
 
         Link editLink = new Link("edit_link") {
             @Override
