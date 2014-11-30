@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class IdiomForm extends Form {
@@ -47,11 +48,18 @@ public class IdiomForm extends Form {
     public void onSubmit() {
         WicketApplication app = (WicketApplication) this.getApplication();
         IIdiomCollection collection = app.getIdiomCollection();
-        for (Idiom idiom : this.selectedIdioms) {
-            collection.deleteIdiom(idiom);
+        if (User.user.getAccesslevel() == 3) {
+            for (Idiom idiom : this.selectedIdioms) {
+                collection.deleteIdiom(idiom);
+            }
+            this.setResponsePage(new IdiomPage());// new IdiomsPage());
+        } else {
+
+            this.setResponsePage(new ErrorPage());
+
         }
-        this.setResponsePage(new IdiomPage());// new IdiomsPage());
-                                              // degistir
+
+        // degistir
         // geri al
     }
 }
