@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 import tr.edu.itu.cs.db.WicketApplication;
+import tr.edu.itu.cs.users.User;
 
 
 public class YourPaintingEditForm extends Form {
@@ -31,11 +32,27 @@ public class YourPaintingEditForm extends Form {
         WicketApplication app = (WicketApplication) this.getApplication();
         IYourPaintingCollection collection = app.getYourPaintingCollection();
 
-        if (this.newYourPainting) {
-            collection.addYourPainting(yourPainting);
+        if (User.user.getAccesslevel() <= 2) {
+            this.setResponsePage(new ErrorPage());
+
         } else {
-            collection.updateYourPainting(yourPainting);
+
+            if (this.newYourPainting) {
+
+                collection.addYourPainting(yourPainting);
+            } else {
+
+                collection.updateYourPainting(yourPainting);
+            }
+
+            if (yourPainting.getId() == null) {
+                this.setResponsePage(new YourPaintingPage());
+            } else {
+                this.setResponsePage(new YourPaintingDetailPage(yourPainting));
+
+            }
+
         }
-        this.setResponsePage(new YourPaintingDetailPage(yourPainting));
+
     }
 }
