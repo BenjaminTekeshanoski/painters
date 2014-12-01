@@ -20,12 +20,12 @@ CREATE TABLE REVIEWER(id INTEGER PRIMARY KEY AUTOINCREMENT, FULLNAME VARCHAR(70)
 CREATE TABLE MUSEUM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE LOCATION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), city VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE PAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, painter VARCHAR(20), desc VARCHAR(80), place VARCHAR(80), idiom VARCHAR(30));
-CREATE TABLE UPDATES(id INTEGER PRIMARY KEY AUTOINCREMENT, desc VARCHAR(80));
-CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(500));
+CREATE TABLE UPDATES(desc VARCHAR(80));
+CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(1000));
 CREATE TABLE COMMENT(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(1000), owner INTEGER, target VARCHAR(20));
 CREATE TABLE AWARD(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, owner VARCHAR(20));
 CREATE TABLE PMEDÝA(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), desc VARCHAR(1000));
-CREATE TABLE YOURPAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
+CREATE TABLE YOURPAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(500));
 CREATE TABLE PAINTER(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), age INTEGER, country VARCHAR(20), biography VARCHAR(1000), paintname VARCHAR(1000));
 CREATE TABLE EXHIBITION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20));
 CREATE TABLE PAINTINGSTYLE(id INTEGER PRIMARY KEY AUTOINCREMENT, stylename VARCHAR(100),  year INTEGER, paintname VARCHAR(20), desc VARCHAR(80));
@@ -47,16 +47,22 @@ INSERT INTO MUSEUM(name, year, location, desc) VALUES("Rijksmuseum", 1800, "Amst
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Museo Reina Sofia", 1992, "Madrid", "Spain's national museum of 20th-century art");
 INSERT INTO LOCATION(name, city, desc) VALUES("The Sistine Chapel", "Vatican City", "The Sistine Chapel is a large and renowned chapel in the Apostolic Palace, the official residence of the Pope" );
 INSERT INTO LOCATION(name, city, desc) VALUES("Santa Maria delle Grazie Monastery", "Milan", "Santa Maria delle Grazie is a church and Dominican convent in Milan, northern Italy" );
-INSERT INTO LOCATION(name, city, desc) VALUES("Taktsang Palphug Monastery", "Bhutan", "A prominent Himalayan Buddhist sacred site and temple complex" );
-INSERT INTO LOCATION(name, city, desc) VALUES("Ajanta Caves", "Maharashtra", "The caves form the largest corpus of early Indian wall-painting" );
-INSERT INTO LOCATION(name, city, desc) VALUES("Siena Cathedral", "Siena", "The origins of the first structure are obscure and shrouded in legend" );
 
-INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa", 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman ","Louvre Museum",  "Allegory");
-INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Girl with a Mandolin"	, 1910, "Pablo Picasso" ,"...", "muzeadi","Bodegón");
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa", 1519, "Leonardo da Vinci","The most famous painting in the world is the main attraction of the Louvre museum in Paris, where it is seen by six million people every year! Leonardo da Vinci painted it from the year 1503 or 1504 till shortly before he died in 1519",                                                                                                                           "Louvre Museum",                     "Allegory");
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("The Last Supper"	, 1470,             "Leonardo da Vinci" ,"This world famous painting is not shown in a museum, but rather covers the back wall of the dining hall at Santa Maria delle Grazie monastery in Milan, Italy. It was painted by the most famous artist of all time, Leonardo da Vinci in the late 15th-century. The painting depicts the scene of The Last Supper of Jesus with his disciples", "Santa Maria delle Grazie monastery","Bodegón");
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Starry Night", 1889, "Vincent van Gogh","Painted by Dutch artist Vincent van Gogh in 1889, Starry Night is one of the most well known paintings in modern culture. The painting is part of the permanent collection of the Museum of Modern Art in New York. The painting was the inspiration for the song “Vincent” (also known as “starry starry night”) by Don McLean. McLean’s song reference the painting as well as other paintings by the famous artist","Museum of Modern Art in New York",  "Allegory");
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("The Scream", 1893, "Edvard Munch","The most famous piece by Edvard Munch, painted around 1893. It was painted using oil and pastel on cardboard. This frightening painting is on display at The National Gallery, Oslo, Norway","The National Gallery",  "Bodegón");
+INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("The Persistence Of Memory", 1931, "Salvador Dali","Painted in 1931 by the Spanish artist Salvador Dali, The Persistence of Memory is one of the most recognizable pieces in art history. This work of art is known to make people ponder on their way of life and the way they spend their time, and it is also thought that this wonderful painting was inspired by Albert Einstein’s Theory of Relativity","Louvre Museum",  "Bodegón");
 
-INSERT INTO IDIOM(name, year, location, desc) VALUES("Allegory"	, 1910, "Pablo Picasso" ,"...");
-INSERT INTO IDIOM(name, year, location, desc) VALUES("Bodegón"	, 1914, "Leonardo davinci" ,".45..");
-INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Mona Lisa"				, 1519, "Leonardo da Vinci" , "The Mona Lisa (Monna Lisa or La Gioconda in Italian; La Joconde in French) is a half-length portrait of a woman " );
+
+INSERT INTO IDIOM(name, year, location, desc) VALUES("Allegory"	, 1450, "..." ,"Allegory is a figurative mode of representation conveying meaning other than the literal. Allegory communicates its message by means of symbolic figures, actions or symbolic representation");
+INSERT INTO IDIOM(name, year, location, desc) VALUES("Bodegón"	, 1810, "Belgium and Nederland" ,"In Spanish art, a bodegón is a still life painting depicting pantry items, such as victuals, game, and drink, often arranged on a simple stone slab, and also a painting with one or more figures, but significant still life elements, typically set in a kitchen or tavern. Starting in the Baroque period, such paintings became popular in Spain in the second quarter of the 17th century. The tradition of still life painting appears to have started and was far more popular in the contemporary Low Countries, today Belgium and Netherlands (then Flemish and Dutch artists), than it ever was in southern Europe.");
+INSERT INTO IDIOM(name, year, location, desc) VALUES("Body painting"	, 1100, "All" ,"Body painting is a form of body art. Unlike tattoo and other forms of body art, body painting is temporary, painted onto the human skin, and lasts for only several hours, or at most (in the case of Mehndi or henna tattoo) a couple of weeks. Body painting that is limited to the face is known as face painting. ");
+
+
+INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Sold Cole Porters Home Peru "				, 2013, "Charlie Spear" , "The view is atop the hill on the south side of Peru. The Cole Porter House is just off center to the lower right. The water tower, the Court House and St. Charles Church can be seen from this vantage point also. The street I am looking from is the oldest street in town and is paved with brick pavers. I've stood on this hill hundreds of times and painted this view as many as twenty times with a different focus each time. " );
+INSERT INTO YOURPAINTING(name, year, location, desc) VALUES("Max Schmitt In A Single Scull "				, 2011, "Thomas Eakins" , "... " );
+
 INSERT INTO PAINTER(name, age, country, biography, paintname) VALUES("Leonardo da Vinci", 67, "Italy", "Leonardo da Vinci was a leading artist and intellectual of the Italian Renaissance who's known for his enduring works ", "Mona Lisa");
 INSERT INTO PAINTER(name, age, country, biography, paintname) VALUES("Pablo Picasso", 91, "Spain", " Picasso is to Art History a giant earthquake with eternal aftermaths. With the possible exception of Michelangelo (who focused his greatest efforts in sculpture and architecture), no other artist had such ambitions at the time of placing his oeuvre in the history of art. Picasso created the avant-garde.", "Accordionist");
 INSERT INTO PAINTER(name, age, country, biography, paintname) VALUES("Giotto di Bondone", 70, "Italy", "Giotto di Bondone (1266/7 – January 8, 1337), known as Giotto (Italian:  was an Italian painter and architect from Florence in the late Middle Ages. He is generally considered the first in a line of great artists who contributed to the Italian Renaissance.", "Ognissanti Madonna");
@@ -82,10 +88,4 @@ INSERT INTO AWARD(name, year, owner) VALUES("Museum of Modern Art Award", 1929, 
 INSERT INTO UPDATES(desc) VALUES("Created Application");
 INSERT INTO UPDATES(desc) VALUES("Added Museums");
 INSERT INTO UPDATES(desc) VALUES("Added Idioms");
-INSERT INTO UPDATES(desc) VALUES("Added Paintings");
-INSERT INTO UPDATES(desc) VALUES("Added Painters"); 
-INSERT INTO UPDATES(desc) VALUES("Added Exhibitions"); 
-INSERT INTO UPDATES(desc) VALUES("Added Awards"); 
-INSERT INTO UPDATES(desc) VALUES("Added Painting Medias"); 
-INSERT INTO UPDATES(desc) VALUES("Added Add Your Paintings"); 
-INSERT INTO UPDATES(desc) VALUES("Added Painting Styles");   
+INSERT INTO UPDATES(desc) VALUES("Added Paintings");     
