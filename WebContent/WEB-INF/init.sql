@@ -20,7 +20,7 @@ CREATE TABLE REVIEWER(id INTEGER PRIMARY KEY AUTOINCREMENT, FULLNAME VARCHAR(70)
 CREATE TABLE MUSEUM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE LOCATION(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), city VARCHAR(20), desc VARCHAR(80));
 CREATE TABLE PAINTING(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, painter VARCHAR(20), desc VARCHAR(80), place VARCHAR(80), idiom VARCHAR(30));
-CREATE TABLE UPDATES(desc VARCHAR(80));
+CREATE TABLE UPDATES(id INTEGER PRIMARY KEY AUTOINCREMENT, desc VARCHAR(80));
 CREATE TABLE IDIOM(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, location VARCHAR(20), desc VARCHAR(1000));
 CREATE TABLE COMMENT(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(1000), owner INTEGER, target VARCHAR(20));
 CREATE TABLE AWARD(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20), year INTEGER, owner VARCHAR(20));
@@ -47,6 +47,10 @@ INSERT INTO MUSEUM(name, year, location, desc) VALUES("Rijksmuseum", 1800, "Amst
 INSERT INTO MUSEUM(name, year, location, desc) VALUES("Museo Reina Sofia", 1992, "Madrid", "Spain's national museum of 20th-century art");
 INSERT INTO LOCATION(name, city, desc) VALUES("The Sistine Chapel", "Vatican City", "The Sistine Chapel is a large and renowned chapel in the Apostolic Palace, the official residence of the Pope" );
 INSERT INTO LOCATION(name, city, desc) VALUES("Santa Maria delle Grazie Monastery", "Milan", "Santa Maria delle Grazie is a church and Dominican convent in Milan, northern Italy" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Taktsang Palphug Monastery", "Bhutan", "A prominent Himalayan Buddhist sacred site and temple complex" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Ajanta Caves", "Maharashtra", "The caves form the largest corpus of early Indian wall-painting" );
+INSERT INTO LOCATION(name, city, desc) VALUES("Siena Cathedral", "Siena", "The origins of the first structure are obscure and shrouded in legend" );
+
 
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("Mona Lisa", 1519, "Leonardo da Vinci","The most famous painting in the world is the main attraction of the Louvre museum in Paris, where it is seen by six million people every year! Leonardo da Vinci painted it from the year 1503 or 1504 till shortly before he died in 1519",                                                                                                                           "Louvre Museum",                     "Allegory");
 INSERT INTO PAINTING(name, year, painter, desc, place, idiom) VALUES("The Last Supper"	, 1470,             "Leonardo da Vinci" ,"This world famous painting is not shown in a museum, but rather covers the back wall of the dining hall at Santa Maria delle Grazie monastery in Milan, Italy. It was painted by the most famous artist of all time, Leonardo da Vinci in the late 15th-century. The painting depicts the scene of The Last Supper of Jesus with his disciples", "Santa Maria delle Grazie monastery","Bodegón");
@@ -88,4 +92,11 @@ INSERT INTO AWARD(name, year, owner) VALUES("Museum of Modern Art Award", 1929, 
 INSERT INTO UPDATES(desc) VALUES("Created Application");
 INSERT INTO UPDATES(desc) VALUES("Added Museums");
 INSERT INTO UPDATES(desc) VALUES("Added Idioms");
-INSERT INTO UPDATES(desc) VALUES("Added Paintings");     
+INSERT INTO UPDATES(desc) VALUES("Added Paintings");    
+INSERT INTO UPDATES(desc) VALUES("Added Paintings");
+INSERT INTO UPDATES(desc) VALUES("Added Painters"); 
+INSERT INTO UPDATES(desc) VALUES("Added Exhibitions"); 
+INSERT INTO UPDATES(desc) VALUES("Added Awards"); 
+INSERT INTO UPDATES(desc) VALUES("Added Painting Medias"); 
+INSERT INTO UPDATES(desc) VALUES("Added Add Your Paintings"); 
+INSERT INTO UPDATES(desc) VALUES("Added Painting Styles"); 
